@@ -1,6 +1,6 @@
 :root {
-  --milk: #f8f4ee;
-  --beige: #efe6db;
+  --milk: #f8eef8;
+  --beige: #eedbef;
   --powder: #e3d4cd;
   --warm-gray: #7b7169;
   --coffee: #9d7f6c;
@@ -195,7 +195,7 @@ p {
 .about-ba__item img {
   width: 100%;
   aspect-ratio: 1;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 0.85rem;
 }
 
@@ -266,7 +266,10 @@ summary {
   }
 
   .hero__photo img {
-    min-height: 320px;
+    min-height: unset;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
   }
 }
 
