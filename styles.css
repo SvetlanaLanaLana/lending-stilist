@@ -142,28 +142,28 @@ p {
 
 .btn {
   display: inline-block;
-  background: var(--coffee);
+  background: var(--violet-deep);
   color: #fff;
   text-decoration: none;
   border-radius: 999px;
   padding: 0.8rem 1.4rem;
   font-weight: 500;
   margin: 0.7rem 0 1rem;
-  box-shadow: 0 4px 14px rgba(93, 73, 57, 0.14);
+  box-shadow: 0 4px 14px rgba(107, 79, 154, 0.28);
   transition:
     transform 0.25s ease,
-    opacity 0.25s ease,
+    background 0.25s ease,
     box-shadow 0.25s ease;
 }
 
 .btn:hover {
   transform: translateY(-2px);
-  opacity: 0.95;
-  box-shadow: 0 8px 22px rgba(93, 73, 57, 0.2);
+  background: var(--violet);
+  box-shadow: 0 8px 22px rgba(107, 79, 154, 0.38);
 }
 
 .btn--light {
-  background: var(--olive);
+  background: var(--violet-deep);
 }
 
 .btn--full {
