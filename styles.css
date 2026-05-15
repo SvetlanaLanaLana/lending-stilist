@@ -91,6 +91,34 @@ h1 {
   font-size: clamp(1.9rem, 4vw, 3rem);
 }
 
+/* SplitText: анимация букв главного заголовка */
+.split-text {
+  overflow: hidden;
+  display: block;
+}
+
+html.js .hero h1.split-text:not(.split-text--animate):not(.split-text--ready) {
+  opacity: 0;
+}
+
+.split-char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(40px);
+  will-change: transform, opacity;
+}
+
+.split-text--animate .split-char {
+  animation: splitCharIn 1.25s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes splitCharIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 h2 {
   font-size: clamp(1.5rem, 3vw, 2.2rem);
   margin-bottom: 1.25rem;
@@ -344,7 +372,7 @@ summary {
   }
 }
 
-html.js .hero__text > * {
+html.js .hero__text > :not(h1) {
   opacity: 0;
   animation: heroFadeUp 0.75s ease forwards;
 }
@@ -353,20 +381,16 @@ html.js .hero__meta {
   animation-delay: 0.05s;
 }
 
-html.js .hero h1 {
-  animation-delay: 0.15s;
-}
-
 html.js .hero .lead {
-  animation-delay: 0.25s;
+  animation-delay: 0.55s;
 }
 
 html.js .hero .btn {
-  animation-delay: 0.35s;
+  animation-delay: 0.65s;
 }
 
 html.js .hero__note {
-  animation-delay: 0.45s;
+  animation-delay: 0.75s;
 }
 
 html.js .hero__photo {
@@ -424,6 +448,12 @@ html.js .reveal.is-visible {
     color: var(--text);
     -webkit-background-clip: unset;
     background-clip: unset;
+  }
+
+  .split-char {
+    opacity: 1;
+    transform: none;
+    animation: none;
   }
 
   html.js .hero__text > *,
