@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
@@ -30,8 +30,45 @@
     </div>
   </header>
 
+  <section class="flowing-section reveal" aria-label="Навигация по разделам" data-flowing-menu data-speed="18">
+    <nav class="flowing-menu__nav">
+      <div class="flowing-menu__item" data-flowing-item>
+        <a href="#requests" class="flowing-menu__link" data-text="Запросы" data-image="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80">Запросы</a>
+        <div class="flowing-menu__marquee" aria-hidden="true">
+          <div class="flowing-menu__marquee-wrap">
+            <div class="flowing-menu__marquee-inner" data-marquee-inner></div>
+          </div>
+        </div>
+      </div>
+      <div class="flowing-menu__item" data-flowing-item>
+        <a href="#process" class="flowing-menu__link" data-text="Как проходит работа" data-image="https://images.unsplash.com/photo-1483985988354-763728e3685b?w=600&q=80">Как проходит работа</a>
+        <div class="flowing-menu__marquee" aria-hidden="true">
+          <div class="flowing-menu__marquee-wrap">
+            <div class="flowing-menu__marquee-inner" data-marquee-inner></div>
+          </div>
+        </div>
+      </div>
+      <div class="flowing-menu__item" data-flowing-item>
+        <a href="#about" class="flowing-menu__link" data-text="О специалисте" data-image="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&q=80">О специалисте</a>
+        <div class="flowing-menu__marquee" aria-hidden="true">
+          <div class="flowing-menu__marquee-wrap">
+            <div class="flowing-menu__marquee-inner" data-marquee-inner></div>
+          </div>
+        </div>
+      </div>
+      <div class="flowing-menu__item" data-flowing-item>
+        <a href="#contact" class="flowing-menu__link" data-text="Записаться" data-image="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=600&q=80">Записаться</a>
+        <div class="flowing-menu__marquee" aria-hidden="true">
+          <div class="flowing-menu__marquee-wrap">
+            <div class="flowing-menu__marquee-inner" data-marquee-inner></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </section>
+
   <main>
-    <section class="section">
+    <section class="section" id="requests">
       <div class="container">
         <h2 class="reveal">С какими запросами можно обратиться</h2>
         <ul class="list reveal-stagger">
@@ -46,7 +83,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="results">
       <div class="container">
         <h2 class="reveal">Что может измениться после работы</h2>
         <div class="grid grid--three reveal-stagger">
@@ -61,7 +98,7 @@
       </div>
     </section>
 
-    <section class="section section--alt">
+    <section class="section section--alt" id="process">
       <div class="container">
         <h2 class="reveal">Как проходит работа</h2>
         <ol class="steps reveal-stagger">
@@ -86,7 +123,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="about">
       <div class="container">
         <h2 class="reveal">О специалисте</h2>
         <p class="reveal"><strong>Подольская Светлана</strong> — консультант.</p>
@@ -145,7 +182,7 @@
       </div>
     </section>
 
-    <section class="section section--alt">
+    <section class="section section--alt" id="formats">
       <div class="container">
         <h2 class="reveal">Форматы работы</h2>
         <div class="pricing">
@@ -160,7 +197,7 @@
             </ul>
           </div>
           <div class="price-box reveal">
-            <p><span>Стоимость</span> от ___ ₽</p>
+            <p><span>Стоимость</span>зависит от выбора услуги</p>
             <p><span>Формат</span> Онлайн / офлайн</p>
             <a href="#contact" class="btn btn--full">Уточнить стоимость</a>
           </div>
@@ -168,74 +205,6 @@
       </div>
     </section>
 
-    <section class="section" id="reviews">
-      <div class="container">
-        <h2 class="reveal">Отзывы клиенток</h2>
-        <div class="testimonials reveal" data-testimonials>
-          <div class="testimonials__track" data-testimonials-track tabindex="0" aria-label="Карусель отзывов">
-            <article class="testimonial-card" data-testimonial-card>
-              <div class="testimonial-card__bg" style="background-image: url('https://images.unsplash.com/photo-1528458965990-428de4b1cb0d?w=800&q=80');" aria-hidden="true"></div>
-              <img class="testimonial-card__avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&q=80" alt="" width="150" height="150" loading="lazy">
-              <p class="testimonial-card__quote">После консультации стало намного проще покупать вещи — наконец понимаю, зачем что-то беру.</p>
-              <p class="testimonial-card__name">Анна</p>
-              <p class="testimonial-card__role">клиентка</p>
-              <button type="button" class="testimonial-card__trigger" aria-label="Читать отзыв Анны полностью"></button>
-            </article>
-            <article class="testimonial-card" data-testimonial-card>
-              <div class="testimonial-card__bg" style="background-image: url('https://images.unsplash.com/photo-1528458965990-428de4b1cb0d?w=800&q=80');" aria-hidden="true"></div>
-              <img class="testimonial-card__avatar" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&q=80" alt="" width="150" height="150" loading="lazy">
-              <p class="testimonial-card__quote">Очень комфортный и спокойный подход — без давления и лишней критики.</p>
-              <p class="testimonial-card__name">Мария</p>
-              <p class="testimonial-card__role">клиентка</p>
-              <button type="button" class="testimonial-card__trigger" aria-label="Читать отзыв Марии полностью"></button>
-            </article>
-            <article class="testimonial-card" data-testimonial-card>
-              <div class="testimonial-card__bg" style="background-image: url('https://images.unsplash.com/photo-1528458965990-428de4b1cb0d?w=800&q=80');" aria-hidden="true"></div>
-              <img class="testimonial-card__avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&q=80" alt="" width="150" height="150" loading="lazy">
-              <p class="testimonial-card__quote">Теперь понимаю, какие вещи действительно мне подходят, и гардероб стал цельнее.</p>
-              <p class="testimonial-card__name">Елена</p>
-              <p class="testimonial-card__role">клиентка</p>
-              <button type="button" class="testimonial-card__trigger" aria-label="Читать отзыв Елены полностью"></button>
-            </article>
-            <article class="testimonial-card" data-testimonial-card>
-              <div class="testimonial-card__bg" style="background-image: url('https://images.unsplash.com/photo-1528458965990-428de4b1cb0d?w=800&q=80');" aria-hidden="true"></div>
-              <img class="testimonial-card__avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&q=80" alt="" width="150" height="150" loading="lazy">
-              <p class="testimonial-card__quote">Разбор гардероба помог убрать лишнее и собрать образы из того, что уже было в шкафу.</p>
-              <p class="testimonial-card__name">Ольга</p>
-              <p class="testimonial-card__role">после разбора гардероба</p>
-              <button type="button" class="testimonial-card__trigger" aria-label="Читать отзыв Ольги полностью"></button>
-            </article>
-            <article class="testimonial-card" data-testimonial-card>
-              <div class="testimonial-card__bg" style="background-image: url('https://images.unsplash.com/photo-1528458965990-428de4b1cb0d?w=800&q=80');" aria-hidden="true"></div>
-              <img class="testimonial-card__avatar" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=300&q=80" alt="" width="150" height="150" loading="lazy">
-              <p class="testimonial-card__quote">Стало проще выбирать цвета и фасоны — покупки стали осознаннее и спокойнее.</p>
-              <p class="testimonial-card__name">Ирина</p>
-              <p class="testimonial-card__role">после консультации по стилю</p>
-              <button type="button" class="testimonial-card__trigger" aria-label="Читать отзыв Ирины полностью"></button>
-            </article>
-          </div>
-          <div class="testimonials__nav">
-            <button type="button" class="testimonials__btn" data-testimonials-prev aria-label="Предыдущий отзыв" disabled>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <button type="button" class="testimonials__btn" data-testimonials-next aria-label="Следующий отзыв">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-          </div>
-        </div>
-        <div class="testimonial-modal" data-testimonial-modal hidden>
-          <div class="testimonial-modal__backdrop" data-testimonial-close></div>
-          <div class="testimonial-modal__panel" role="dialog" aria-modal="true" aria-labelledby="testimonial-modal-title">
-            <button type="button" class="testimonial-modal__close" data-testimonial-close aria-label="Закрыть отзыв">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-            </button>
-            <p class="testimonial-modal__role" data-testimonial-modal-role></p>
-            <p class="testimonial-modal__name" id="testimonial-modal-title" data-testimonial-modal-name></p>
-            <blockquote class="testimonial-modal__text" data-testimonial-modal-text></blockquote>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <section class="section section--alt" id="faq">
       <div class="container">
@@ -272,7 +241,7 @@
     </div>
   </footer>
   <script src="split-text.js" defer></script>
-  <script src="testimonials.js" defer></script>
+  <script src="flowing-menu.js" defer></script>
   <script src="script.js" defer></script>
 </body>
 </html>
