@@ -8,12 +8,21 @@
   --text: #3f3834;
   --white: #fffdf9;
   --shadow: 0 10px 30px rgba(93, 73, 57, 0.08);
+  --violet-deep: #6b4f9a;
+  --violet: #8a6fad;
+  --violet-soft: #b497cf;
+  --violet-light: #d4b8e8;
+  --lavender: #c9a0d4;
 }
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 html,
@@ -55,6 +64,27 @@ h3 {
   font-weight: 600;
   margin: 0 0 1rem;
   letter-spacing: 0.01em;
+}
+
+h1,
+h2,
+h3 {
+  background-image: linear-gradient(
+    90deg,
+    var(--violet-deep) 0%,
+    var(--violet) 18%,
+    var(--lavender) 36%,
+    var(--violet-soft) 52%,
+    var(--violet-light) 68%,
+    var(--beige) 82%,
+    var(--violet-deep) 100%
+  );
+  background-size: 300% 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientTextFlow 8s ease-in-out infinite;
 }
 
 h1 {
@@ -119,12 +149,17 @@ p {
   padding: 0.8rem 1.4rem;
   font-weight: 500;
   margin: 0.7rem 0 1rem;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  box-shadow: 0 4px 14px rgba(93, 73, 57, 0.14);
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .btn:hover {
   transform: translateY(-2px);
   opacity: 0.95;
+  box-shadow: 0 8px 22px rgba(93, 73, 57, 0.2);
 }
 
 .btn--light {
@@ -148,6 +183,16 @@ p {
   border-radius: 0.85rem;
   padding: 0.8rem 1rem;
   margin-bottom: 0.7rem;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.list li:hover {
+  transform: translateY(-2px);
+  border-color: rgba(157, 127, 108, 0.35);
+  box-shadow: 0 8px 20px rgba(93, 73, 57, 0.08);
 }
 
 .grid {
@@ -157,6 +202,27 @@ p {
 
 .grid--three {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.card,
+.quote,
+.faq-card,
+.price-box,
+.about-ba__item {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.card:hover,
+.quote:hover,
+.faq-card:hover,
+.price-box:hover,
+.about-ba__item:hover {
+  transform: translateY(-3px);
+  border-color: rgba(157, 127, 108, 0.35);
+  box-shadow: 0 12px 28px rgba(93, 73, 57, 0.1);
 }
 
 .card,
@@ -253,6 +319,125 @@ summary {
 .final p {
   margin-inline: auto;
   max-width: 70ch;
+}
+
+@keyframes gradientTextFlow {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+html.js .hero__text > * {
+  opacity: 0;
+  animation: heroFadeUp 0.75s ease forwards;
+}
+
+html.js .hero__meta {
+  animation-delay: 0.05s;
+}
+
+html.js .hero h1 {
+  animation-delay: 0.15s;
+}
+
+html.js .hero .lead {
+  animation-delay: 0.25s;
+}
+
+html.js .hero .btn {
+  animation-delay: 0.35s;
+}
+
+html.js .hero__note {
+  animation-delay: 0.45s;
+}
+
+html.js .hero__photo {
+  opacity: 0;
+  animation: heroFadeUp 0.85s ease 0.3s forwards;
+}
+
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.65s ease,
+    transform 0.65s ease;
+}
+
+html.js .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-stagger .reveal:nth-child(1) {
+  transition-delay: 0s;
+}
+
+.reveal-stagger .reveal:nth-child(2) {
+  transition-delay: 0.07s;
+}
+
+.reveal-stagger .reveal:nth-child(3) {
+  transition-delay: 0.14s;
+}
+
+.reveal-stagger .reveal:nth-child(4) {
+  transition-delay: 0.21s;
+}
+
+.reveal-stagger .reveal:nth-child(5) {
+  transition-delay: 0.28s;
+}
+
+.reveal-stagger .reveal:nth-child(6) {
+  transition-delay: 0.35s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  h1,
+  h2,
+  h3 {
+    animation: none;
+    background: none;
+    color: var(--text);
+    -webkit-background-clip: unset;
+    background-clip: unset;
+  }
+
+  html.js .hero__text > *,
+  html.js .hero__photo {
+    opacity: 1;
+    animation: none;
+    transform: none;
+  }
+
+  html.js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 @media (max-width: 900px) {
