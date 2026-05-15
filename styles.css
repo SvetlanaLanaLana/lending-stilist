@@ -13,6 +13,16 @@
   --violet-soft: #b497cf;
   --violet-light: #d4b8e8;
   --lavender: #c9a0d4;
+  --heading-gradient: linear-gradient(
+    90deg,
+    var(--violet-deep) 0%,
+    var(--violet) 18%,
+    var(--lavender) 36%,
+    var(--violet-soft) 52%,
+    var(--violet-light) 68%,
+    var(--beige) 82%,
+    var(--violet-deep) 100%
+  );
 }
 
 *,
@@ -69,16 +79,7 @@ h3 {
 h1,
 h2,
 h3 {
-  background-image: linear-gradient(
-    90deg,
-    var(--violet-deep) 0%,
-    var(--violet) 18%,
-    var(--lavender) 36%,
-    var(--violet-soft) 52%,
-    var(--violet-light) 68%,
-    var(--beige) 82%,
-    var(--violet-deep) 100%
-  );
+  background-image: var(--heading-gradient);
   background-size: 300% 100%;
   background-repeat: repeat;
   -webkit-background-clip: text;
@@ -91,25 +92,32 @@ h1 {
   font-size: clamp(1.9rem, 4vw, 3rem);
 }
 
-/* SplitText: анимация букв главного заголовка */
+/* SplitText: буквы главного заголовка (текст виден до запуска скрипта) */
 .split-text {
   overflow: hidden;
   display: block;
 }
 
-html.js .hero h1.split-text:not(.split-text--animate):not(.split-text--ready) {
-  opacity: 0;
+.split-line {
+  display: block;
 }
 
-.split-char {
+.split-text .split-char {
   display: inline-block;
+  background-image: var(--heading-gradient);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   opacity: 0;
   transform: translateY(40px);
   will-change: transform, opacity;
 }
 
 .split-text--animate .split-char {
-  animation: splitCharIn 1.25s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation:
+    splitCharIn 1.25s cubic-bezier(0.22, 1, 0.36, 1) forwards,
+    gradientTextFlow 8s ease-in-out infinite;
 }
 
 @keyframes splitCharIn {
@@ -372,9 +380,14 @@ summary {
   }
 }
 
-html.js .hero__text > :not(h1) {
+html.js .hero__text > :not(.split-text) {
   opacity: 0;
   animation: heroFadeUp 0.75s ease forwards;
+}
+
+html.js .hero h1.split-text {
+  opacity: 1;
+  animation: gradientTextFlow 8s ease-in-out infinite;
 }
 
 html.js .hero__meta {
@@ -450,10 +463,14 @@ html.js .reveal.is-visible {
     background-clip: unset;
   }
 
-  .split-char {
+  .split-text .split-char {
     opacity: 1;
     transform: none;
     animation: none;
+    background: none;
+    color: inherit;
+    -webkit-background-clip: unset;
+    background-clip: unset;
   }
 
   html.js .hero__text > *,
