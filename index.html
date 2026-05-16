@@ -31,7 +31,7 @@
         <a href="#process">Процесс</a>
         <a href="#about">О себе</a>
         <a href="#formats">Услуги</a>
-        <a href="#contact" class="site-header__nav-cta">Записаться</a>
+        <a href="#" class="site-header__nav-cta" data-booking-open>Записаться</a>
       </nav>
     </div>
   </header>
@@ -48,7 +48,7 @@
           Разберем гардероб, определим подходящие цвета и фасоны, чтобы вам было легче
           выбирать вещи на каждый день.
         </p>
-        <a href="#contact" class="btn">Записаться на консультацию</a>
+        <a href="#" class="btn" data-booking-open>Записаться на консультацию</a>
         <p class="hero__note">Спокойный и бережный подход без критики и навязанных стандартов.</p>
       </div>
       <div class="hero__photo" aria-label="Фото Светланы">
@@ -79,7 +79,7 @@
         <span class="section-nav__num">05</span>
         <span class="section-nav__label">Услуги</span>
       </a>
-      <a class="section-nav__card" href="#contact">
+      <a class="section-nav__card" href="#" data-booking-open>
         <span class="section-nav__num">06</span>
         <span class="section-nav__label">Записаться</span>
       </a>
@@ -98,13 +98,13 @@
           <li class="reveal">«Хочу собрать базовый гардероб»</li>
           <li class="reveal">«Хочу чувствовать себя увереннее в одежде»</li>
         </ul>
-        <a href="#contact" class="btn btn--light reveal">Обсудить свой запрос</a>
+        <a href="#" class="btn btn--light reveal" data-booking-open>Обсудить свой запрос</a>
       </div>
     </section>
 
     <section class="section section--alt" id="results">
       <div class="container">
-        <h2 class="reveal section-title">Что может измениться после работы</h2>
+        <h2 class="reveal section-title">Что  изменится после работы</h2>
         <div class="grid grid--three reveal-stagger">
           <article class="card reveal">станет проще собирать образы на каждый день</article>
           <article class="card reveal">появится понимание своих цветов и фасонов</article>
@@ -138,7 +138,7 @@
             <p>Вы получаете понятные рекомендации без перегруза и сложных правил.</p>
           </li>
         </ol>
-        <a href="#contact" class="btn reveal">Записаться на консультацию</a>
+        <a href="#" class="btn reveal" data-booking-open>Записаться на консультацию</a>
       </div>
     </section>
 
@@ -218,7 +218,7 @@
           <div class="price-box reveal">
             <p><span>Стоимость</span> зависит от выбора услуги</p>
             <p><span>Формат</span> Онлайн / офлайн</p>
-            <a href="#contact" class="btn btn--full">Уточнить стоимость</a>
+            <a href="#" class="btn btn--full" data-booking-open>Уточнить стоимость</a>
           </div>
         </div>
       </div>
@@ -254,12 +254,49 @@
         Если вам хочется спокойной и понятной работы со стилем — буду рада
         познакомиться и обсудить ваш запрос.
       </p>
-      <a href="tel:+79990000000" class="btn reveal">Записаться на консультацию</a>
+      <a href="#" class="btn reveal" data-booking-open>Записаться на консультацию</a>
       <p class="section__note reveal">Можно просто задать вопрос без обязательств.</p>
     </div>
   </footer>
+  <div class="booking-modal" id="booking-modal" hidden aria-hidden="true">
+    <div class="booking-modal__backdrop" data-booking-close tabindex="-1" aria-hidden="true"></div>
+    <div class="booking-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="booking-modal-title">
+      <button type="button" class="booking-modal__close" data-booking-close aria-label="Закрыть">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h2 class="booking-modal__title" id="booking-modal-title">Запись на консультацию</h2>
+      <p class="booking-modal__lead">Оставьте контакты — свяжусь с вами, чтобы обсудить запрос.</p>
+
+      <form class="booking-form" id="booking-form" novalidate>
+        <div class="booking-form__field">
+          <label class="booking-form__label" for="booking-name">Имя</label>
+          <input class="booking-form__input" type="text" id="booking-name" name="name" autocomplete="name" required placeholder="Как к вам обращаться">
+        </div>
+        <div class="booking-form__field">
+          <label class="booking-form__label" for="booking-email">Почта</label>
+          <input class="booking-form__input" type="email" id="booking-email" name="email" autocomplete="email" required placeholder="example@mail.ru">
+        </div>
+        <div class="booking-form__field">
+          <label class="booking-form__label" for="booking-phone">Номер телефона</label>
+          <input class="booking-form__input" type="tel" id="booking-phone" name="phone" autocomplete="tel" required placeholder="+7 (___) ___-__-__">
+        </div>
+        <div class="booking-form__field booking-form__field--checkbox">
+          <label class="booking-form__checkbox">
+            <input type="checkbox" id="booking-consent" name="consent" value="Да" required>
+            <span>Даю согласие на обработку моих персональных данных</span>
+          </label>
+        </div>
+        <p class="booking-form__error" id="booking-form-error" hidden></p>
+        <p class="booking-form__success" id="booking-form-success" hidden>Спасибо! Заявка отправлена. Скоро свяжусь с вами.</p>
+        <button type="submit" class="btn btn--full booking-form__submit" id="booking-submit">Отправить заявку</button>
+      </form>
+    </div>
+  </div>
+
   <script src="split-text.js" defer></script>
   <script src="nav.js" defer></script>
+  <script src="booking-modal.js" defer></script>
   <script src="script.js" defer></script>
 </body>
 </html>
+
