@@ -148,7 +148,7 @@ img {
 #requests h2::before { content: "01 — с чем приходят"; }
 #results h2::before { content: "02 — результат"; }
 #process h2::before { content: "03 — процесс"; }
-#about h2::before { content: "04 — специалист"; }
+#about h2::before { content: "04 — о себе"; }
 #principles h2::before { content: "05 — подход"; }
 #doubts h2::before { content: "06 — сомнения"; }
 #formats h2::before { content: "07 — услуги"; }
