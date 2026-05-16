@@ -1,0 +1,41 @@
+/* Анимированный градиент для заголовков (адаптация GradientText под статический сайт) */
+[data-gradient-text] {
+  --gt-pos: 0%;
+  --gt-gradient: linear-gradient(
+    to right,
+    #6d4285 0%,
+    #a970b8 35%,
+    #e8b4d4 65%,
+    #6d4285 100%
+  );
+}
+
+[data-gradient-text].gradient-text {
+  background-image: var(--gt-gradient);
+  background-size: 300% 100%;
+  background-position: var(--gt-pos) 50%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+[data-gradient-text] .split-char {
+  display: inline-block;
+  background-image: var(--gt-gradient);
+  background-size: 300% 100%;
+  background-position: var(--gt-pos) 50%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-gradient-text].gradient-text,
+  [data-gradient-text] .split-char {
+    animation: none;
+    background-position: 40% 50%;
+    color: transparent;
+  }
+}
