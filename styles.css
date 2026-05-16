@@ -123,6 +123,11 @@ img {
   position: relative;
 }
 
+.section[id],
+.hero[id] {
+  scroll-margin-top: calc(var(--header-h) + 1rem);
+}
+
 .section--alt {
   background-color: #faf7fb;
   background-image: var(--gradient-section);
@@ -140,7 +145,7 @@ img {
 #doubts h2::before,
 #formats h2::before,
 #faq h2::before,
-.final h2::before {
+#contact h2::before {
   display: block;
   font-family: var(--font-body);
   font-size: var(--text-label);
@@ -159,7 +164,8 @@ img {
 #doubts h2::before { content: "06 — сомнения"; }
 #formats h2::before { content: "07 — услуги"; }
 #faq h2::before { content: "08 — вопросы"; }
-.final h2::before { content: "контакт"; }
+#contact h2::before,
+.final h2::before { content: "09 — контакт"; }
 
 h1,
 h2,
@@ -324,15 +330,18 @@ p {
 
 .site-header__nav {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: clamp(0.5rem, 2vw, 1.75rem);
+  justify-content: flex-end;
+  gap: 0.4rem 0.65rem;
+  max-width: min(100%, 52rem);
 }
 
 .site-header__nav a {
   position: relative;
-  font-size: var(--text-small);
+  font-size: clamp(0.68rem, 1.1vw, 0.78rem);
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   text-decoration: none;
   color: var(--ink-muted);
@@ -395,7 +404,7 @@ p {
 
 .section-nav__grid {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 0.65rem;
 }
 
@@ -475,14 +484,16 @@ p {
 
 .hero__meta {
   display: inline-block;
-  font-size: clamp(0.95rem, 2.2vw, 1.15rem);
+  max-width: 100%;
+  font-size: clamp(0.65rem, 1.35vw, 0.8rem);
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--violet);
-  margin-bottom: 1.15rem;
-  padding-bottom: 0.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.6rem;
   border-bottom: 1px solid var(--line-strong);
+  white-space: nowrap;
 }
 
 .hero__note,
