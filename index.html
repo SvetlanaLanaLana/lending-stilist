@@ -13,10 +13,33 @@
 </head>
 <body>
   <div class="site-grain" aria-hidden="true"></div>
+
+  <header class="site-header" data-site-header>
+    <div class="site-header__bar container">
+      <a href="#top" class="site-header__brand">
+        <span class="site-header__monogram" aria-hidden="true">СП</span>
+        <span class="site-header__name">Светлана Подольская</span>
+      </a>
+      <button type="button" class="site-header__toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav-panel">
+        <span class="visually-hidden">Меню</span>
+        <span class="site-header__toggle-bar" aria-hidden="true"></span>
+        <span class="site-header__toggle-bar" aria-hidden="true"></span>
+      </button>
+      <nav class="site-header__nav" id="site-nav-panel" data-nav-panel aria-label="Основное меню">
+        <a href="#requests">Запросы</a>
+        <a href="#results">Результат</a>
+        <a href="#process">Процесс</a>
+        <a href="#about">О специалисте</a>
+        <a href="#formats">Услуги</a>
+        <a href="#contact" class="site-header__nav-cta">Записаться</a>
+      </nav>
+    </div>
+  </header>
+
   <header class="hero" id="top">
     <div class="container hero__content">
       <div class="hero__text">
-        <p class="hero__meta">Подольская Светлана • консультант по стилю</p>
+        <p class="hero__meta">Светлана Подольская • консультант по стилю</p>
         <h1 class="split-text" data-split-text>
           <span class="split-line">Помогаю женщинам</span>
           <span class="split-line">находить свой стиль</span>
@@ -29,47 +52,39 @@
         <p class="hero__note">Спокойный и бережный подход без критики и навязанных стандартов.</p>
       </div>
       <div class="hero__photo" aria-label="Фото Светланы">
-        <img src="image/Sveta.jpg" alt="Светлана Подольская, имиджмейкер">
+        <img src="Svetlana.jpg" alt="Светлана Подольская, консультант по стилю" width="720" height="900">
       </div>
     </div>
   </header>
 
-  <section class="flowing-section reveal" aria-label="Навигация по разделам" data-flowing-menu data-speed="18">
-    <nav class="flowing-menu__nav">
-      <div class="flowing-menu__item" data-flowing-item>
-        <a href="#requests" class="flowing-menu__link" data-text="Запросы" data-image="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80">Запросы</a>
-        <div class="flowing-menu__marquee" aria-hidden="true">
-          <div class="flowing-menu__marquee-wrap">
-            <div class="flowing-menu__marquee-inner" data-marquee-inner></div>
-          </div>
-        </div>
-      </div>
-      <div class="flowing-menu__item" data-flowing-item>
-        <a href="#process" class="flowing-menu__link" data-text="Как проходит работа" data-image="https://images.unsplash.com/photo-1483985988354-763728e3685b?w=600&q=80">Как проходит работа</a>
-        <div class="flowing-menu__marquee" aria-hidden="true">
-          <div class="flowing-menu__marquee-wrap">
-            <div class="flowing-menu__marquee-inner" data-marquee-inner></div>
-          </div>
-        </div>
-      </div>
-      <div class="flowing-menu__item" data-flowing-item>
-        <a href="#about" class="flowing-menu__link" data-text="О специалисте" data-image="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&q=80">О специалисте</a>
-        <div class="flowing-menu__marquee" aria-hidden="true">
-          <div class="flowing-menu__marquee-wrap">
-            <div class="flowing-menu__marquee-inner" data-marquee-inner></div>
-          </div>
-        </div>
-      </div>
-      <div class="flowing-menu__item" data-flowing-item>
-        <a href="#contact" class="flowing-menu__link" data-text="Записаться" data-image="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=600&q=80">Записаться</a>
-        <div class="flowing-menu__marquee" aria-hidden="true">
-          <div class="flowing-menu__marquee-wrap">
-            <div class="flowing-menu__marquee-inner" data-marquee-inner></div>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </section>
+  <nav class="section-nav reveal" aria-label="Разделы сайта">
+    <div class="container section-nav__grid">
+      <a class="section-nav__card" href="#requests">
+        <span class="section-nav__num">01</span>
+        <span class="section-nav__label">Запросы</span>
+      </a>
+      <a class="section-nav__card" href="#results">
+        <span class="section-nav__num">02</span>
+        <span class="section-nav__label">Результат</span>
+      </a>
+      <a class="section-nav__card" href="#process">
+        <span class="section-nav__num">03</span>
+        <span class="section-nav__label">Процесс</span>
+      </a>
+      <a class="section-nav__card" href="#about">
+        <span class="section-nav__num">04</span>
+        <span class="section-nav__label">О специалисте</span>
+      </a>
+      <a class="section-nav__card" href="#formats">
+        <span class="section-nav__num">05</span>
+        <span class="section-nav__label">Услуги</span>
+      </a>
+      <a class="section-nav__card" href="#contact">
+        <span class="section-nav__num">06</span>
+        <span class="section-nav__label">Записаться</span>
+      </a>
+    </div>
+  </nav>
 
   <main>
     <section class="section" id="requests">
@@ -87,7 +102,7 @@
       </div>
     </section>
 
-    <section class="section" id="results">
+    <section class="section section--alt" id="results">
       <div class="container">
         <h2 class="reveal section-title">Что может измениться после работы</h2>
         <div class="grid grid--three reveal-stagger">
@@ -102,7 +117,7 @@
       </div>
     </section>
 
-    <section class="section section--alt" id="process">
+    <section class="section" id="process">
       <div class="container">
         <h2 class="reveal section-title">Как проходит работа</h2>
         <ol class="steps reveal-stagger">
@@ -127,15 +142,15 @@
       </div>
     </section>
 
-    <section class="section" id="about">
+    <section class="section section--alt" id="about">
       <div class="container">
-        <h2 class="reveal section-title">О специалисте</h2>
+        <h2 class="reveal section-title">О себе</h2>
         <p class="reveal"><strong>Подольская Светлана</strong> — консультант.</p>
         <p class="reveal">С 2023 по 2026 год обучалась в IQ STYLE SCHOOL.</p>
         <p class="reveal">Закончила курсы: «Рецепты стиля», «Три кита стиля», «Код женственности».</p>
-        <p class="reveal">Состоит в «Клубе хорошего вкуса» при IQ STYLE SCHOOL.</p>
+        <p class="reveal">Член «Клуба хорошего вкуса» при IQ STYLE SCHOOL.</p>
         <p class="reveal">В 2025 году прошла обучение по Программе «Преображение» у стилиста-имиджмейкера Ольги Крюковой.</p>
-        <p class="reveal">Помогает женщинам выстраивать комфортный и современный стиль без давления и жестких шаблонов.</p>
+        <p class="reveal">Помогаю женщинам выстраивать комфортный и современный стиль без давления и жестких шаблонов.</p>
         <div class="about-ba reveal-stagger" role="group" aria-label="Фотографии из практики">
           <figure class="about-ba__item reveal">
             <img src="image/to1.jpg" alt="Пример работы стилиста" width="600" height="600" loading="lazy">
@@ -147,11 +162,11 @@
       </div>
     </section>
 
-    <section class="section section--alt">
+    <section class="section" id="principles">
       <div class="container">
-        <h2 class="reveal">На что опираюсь в работе</h2>
+        <h2 class="reveal section-title">На что опираюсь в работе</h2>
         <ul class="list reveal-stagger">
-          <li class="reveal">особенности фигуры</li>
+          <li class="reveal">особенности фигуры, тип лица</li>
           <li class="reveal">цветотип</li>
           <li class="reveal">образ жизни</li>
           <li class="reveal">личный комфорт</li>
@@ -162,9 +177,9 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section--alt" id="doubts">
       <div class="container">
-        <h2 class="reveal">Если есть сомнения — это нормально</h2>
+        <h2 class="reveal section-title">Если есть сомнения — это нормально</h2>
         <div class="faq-grid reveal-stagger">
           <article class="faq-card reveal">
             <h3>«Боюсь, что меня будут критиковать»</h3>
@@ -186,15 +201,15 @@
       </div>
     </section>
 
-    <section class="section section--alt" id="formats">
+    <section class="section" id="formats">
       <div class="container">
         <h2 class="reveal section-title">Форматы работы</h2>
         <div class="pricing">
           <div class="reveal">
             <h3>Варианты услуг</h3>
             <ul class="list reveal-stagger">
-              <li class="reveal">консультация по стилю</li>
-              <li class="reveal">анализ фигуры</li>
+              <li class="reveal">косультация по стилю и гардеробу</li>
+              <li class="reveal">анализ фигуры, лица</li>
               <li class="reveal">определение цветотипа</li>
               <li class="reveal">разбор гардероба</li>
               <li class="reveal">составление базового гардероба</li>
@@ -208,7 +223,6 @@
         </div>
       </div>
     </section>
-
 
     <section class="section section--alt" id="faq">
       <div class="container">
@@ -245,7 +259,7 @@
     </div>
   </footer>
   <script src="split-text.js" defer></script>
-  <script src="flowing-menu.js" defer></script>
+  <script src="nav.js" defer></script>
   <script src="script.js" defer></script>
 </body>
 </html>
