@@ -1,12 +1,24 @@
 :root {
-  /* фон: лавандово-розовые градиенты */
-  --cream: #faf6fc;
-  --blush: #f3e8f6;
-  --blush-deep: #ecd8f0;
+  /* фон: «тихая лаванда» — премиальные мягкие пятна света */
+  --cream: #fbf8fc;
+  --blush: #f3ebf8;
+  --blush-deep: #ebe2f4;
   --rose-mist: #fce8f2;
-  --gradient-page: linear-gradient(160deg, #faf6fc 0%, #f5e8f4 42%, #fce8f0 100%);
-  --gradient-section: linear-gradient(180deg, #f0e4f6 0%, #fae8f1 100%);
-  --gradient-nav-band: linear-gradient(90deg, #efe0f5 0%, #f5dce8 50%, #ebe0f8 100%);
+  --gradient-page:
+    radial-gradient(ellipse 58% 48% at 6% 8%, rgba(240, 228, 248, 0.92) 0%, transparent 58%),
+    radial-gradient(ellipse 52% 44% at 94% 92%, rgba(252, 232, 242, 0.88) 0%, transparent 55%),
+    radial-gradient(ellipse 38% 32% at 78% 12%, rgba(235, 220, 245, 0.4) 0%, transparent 52%),
+    #fbf8fc;
+  --gradient-section:
+    radial-gradient(ellipse 48% 42% at 88% 18%, rgba(248, 232, 242, 0.75) 0%, transparent 56%),
+    radial-gradient(ellipse 54% 46% at 12% 82%, rgba(238, 228, 248, 0.7) 0%, transparent 54%),
+    #faf7fb;
+  --gradient-nav-band:
+    radial-gradient(ellipse 80% 100% at 50% 50%, rgba(245, 235, 248, 0.85) 0%, transparent 70%),
+    linear-gradient(90deg, rgba(240, 228, 248, 0.55) 0%, rgba(252, 232, 242, 0.5) 50%, rgba(238, 228, 248, 0.55) 100%);
+  --glass: rgba(255, 255, 255, 0.62);
+  --glass-border: rgba(255, 255, 255, 0.78);
+  --glass-blur: blur(14px);
   --gradient-btn: linear-gradient(135deg, #a970b8 0%, #8550a0 55%, #9a65ad 100%);
   --gradient-btn-hover: linear-gradient(135deg, #9b62ab 0%, #744391 55%, #8d58a0 100%);
   /* текст */
@@ -71,7 +83,9 @@ body {
 body {
   font-family: var(--font-body);
   color: var(--ink);
-  background: var(--gradient-page);
+  background-color: var(--cream);
+  background-image: var(--gradient-page);
+  background-attachment: fixed;
   line-height: 1.75;
   font-size: var(--text-body);
 }
@@ -93,16 +107,6 @@ body.booking-open {
   border: 0;
 }
 
-.site-grain {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  pointer-events: none;
-  opacity: 0.35;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
-  mix-blend-mode: multiply;
-}
-
 img {
   max-width: 100%;
   display: block;
@@ -120,7 +124,8 @@ img {
 }
 
 .section--alt {
-  background: var(--gradient-section);
+  background-color: #faf7fb;
+  background-image: var(--gradient-section);
 }
 
 .section-title {
@@ -237,8 +242,9 @@ p {
 
 .site-header--scrolled,
 .site-header--open {
-  background: rgba(250, 246, 252, 0.92);
-  backdrop-filter: blur(14px);
+  background: rgba(251, 248, 252, 0.88);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border-bottom-color: var(--line);
   box-shadow: var(--shadow-soft);
 }
@@ -402,7 +408,7 @@ p {
   text-align: left;
   color: var(--on-accent);
   background: var(--gradient-btn);
-  border: 1px solid transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--radius);
   box-shadow: var(--shadow-soft);
   transition:
@@ -443,12 +449,12 @@ p {
 .hero::before {
   content: "";
   position: absolute;
-  width: min(42vw, 28rem);
-  height: min(42vw, 28rem);
-  right: -8%;
-  top: 10%;
+  width: min(48vw, 32rem);
+  height: min(48vw, 32rem);
+  right: -6%;
+  top: 8%;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(185, 130, 210, 0.28) 0%, transparent 68%);
+  background: radial-gradient(circle, rgba(200, 170, 220, 0.32) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -581,8 +587,10 @@ p {
 }
 
 .list li {
-  background: rgba(255, 252, 254, 0.82);
-  border: 1px solid var(--line);
+  background: var(--glass);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
   border-left: 3px solid var(--accent-muted);
   border-radius: 0.65rem;
   padding: 0.95rem 1.1rem;
@@ -598,7 +606,7 @@ p {
 .list li:hover {
   transform: translateX(4px);
   border-left-color: var(--violet);
-  background: var(--paper);
+  background: rgba(255, 255, 255, 0.78);
   box-shadow: var(--shadow-soft);
 }
 
@@ -634,8 +642,10 @@ p {
 
 .card,
 .quote {
-  background: rgba(255, 252, 254, 0.9);
-  border: 1px solid var(--line);
+  background: var(--glass);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius);
   padding: 1.25rem 1.15rem;
   font-family: var(--font-display);
@@ -663,8 +673,10 @@ details p,
   position: relative;
   margin-bottom: 1.25rem;
   padding: 1.15rem 1.15rem 1.15rem 3.5rem;
-  background: rgba(255, 252, 254, 0.75);
-  border: 1px solid var(--line);
+  background: var(--glass);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius);
   counter-increment: step;
 }
@@ -694,8 +706,10 @@ details p,
 
 .about-ba__item {
   margin: 0;
-  background: var(--paper);
-  border: 1px solid var(--line);
+  background: var(--glass);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius);
   padding: 0.85rem;
   box-shadow: var(--shadow-soft);
@@ -715,9 +729,11 @@ details p,
 }
 
 .faq-card {
-  background: var(--paper);
+  background: var(--glass);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border-radius: var(--radius);
-  border: 1px solid var(--line);
+  border: 1px solid var(--glass-border);
   padding: 1.25rem;
 }
 
@@ -744,9 +760,11 @@ details p,
 }
 
 .price-box {
-  background: var(--paper);
+  background: var(--glass);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border-radius: var(--radius);
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--glass-border);
   padding: 1.5rem;
   align-self: start;
   box-shadow: var(--shadow-soft);
@@ -760,8 +778,10 @@ details p,
 }
 
 details {
-  background: rgba(255, 252, 254, 0.92);
-  border: 1px solid var(--line);
+  background: var(--glass);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
   border-radius: 0.75rem;
   padding: 1rem 1.1rem;
   margin-bottom: 0.65rem;
@@ -779,9 +799,11 @@ details[open] {
 }
 
 .final {
-  background:
-    radial-gradient(ellipse 70% 80% at 50% 100%, rgba(133, 80, 160, 0.14), transparent 55%),
-    linear-gradient(165deg, #f0e4f6 0%, #faf6fc 45%, #fce8f2 100%);
+  background-color: #faf7fb;
+  background-image:
+    radial-gradient(ellipse 65% 70% at 50% 100%, rgba(200, 170, 220, 0.2) 0%, transparent 58%),
+    radial-gradient(ellipse 45% 40% at 20% 30%, rgba(240, 228, 248, 0.65) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 38% at 85% 40%, rgba(252, 232, 242, 0.6) 0%, transparent 52%);
   text-align: center;
 }
 
@@ -886,10 +908,6 @@ html.js .reveal.is-visible {
     animation: none;
   }
 
-  .site-grain {
-    display: none;
-  }
-
   html.js .hero__text > *,
   html.js .hero__photo {
     opacity: 1;
@@ -923,7 +941,7 @@ html.js .reveal.is-visible {
     justify-content: flex-start;
     gap: 0;
     padding: 1.5rem 1.25rem 2rem;
-    background: rgba(250, 246, 252, 0.98);
+    background: rgba(251, 248, 252, 0.95);
     backdrop-filter: blur(16px);
     border-top: 1px solid var(--line);
     transform: translateY(-110%);
