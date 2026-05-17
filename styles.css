@@ -710,11 +710,18 @@ p {
 .quote:hover,
 .faq-card:hover,
 .price-box:hover,
-.about-ba__item:hover,
-.color-gallery__item:hover {
+.about-ba__item:hover {
   transform: translateY(-4px);
   border-color: var(--line-strong);
   box-shadow: var(--shadow);
+}
+
+.color-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(109, 66, 133, 0.14);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 16px 38px rgba(62, 48, 56, 0.1);
 }
 
 .card,
@@ -823,49 +830,55 @@ details p,
   margin-bottom: 0.25rem;
 }
 
+.section--color-examples {
+  background-color: #f0ede8;
+  background-image:
+    radial-gradient(ellipse 72% 58% at 12% 18%, rgba(255, 252, 248, 0.92) 0%, transparent 62%),
+    radial-gradient(ellipse 68% 52% at 90% 82%, rgba(228, 222, 212, 0.45) 0%, transparent 58%),
+    linear-gradient(180deg, #f2f0e9 0%, #ebe8e1 100%);
+}
+
+.section--color-examples .section-lead,
+.section--color-examples .section-title {
+  color: var(--ink);
+}
+
 .color-gallery {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2.5vw, 1.35rem);
   margin-top: 1.75rem;
 }
 
-.color-gallery__item {
-  display: flex;
-  flex-direction: column;
+.color-card {
   margin: 0;
-  background: var(--glass);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
+  padding: clamp(0.55rem, 1.2vw, 0.7rem);
+  background: #faf8f4;
+  border: 1px solid rgba(62, 52, 48, 0.07);
   border-radius: var(--radius);
-  padding: 0.75rem;
-  box-shadow: var(--shadow-soft);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    0 10px 28px rgba(62, 48, 56, 0.07);
   transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    border-color 0.25s ease;
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease;
 }
 
-.color-gallery__item img {
+.color-card__media {
+  overflow: hidden;
+  border-radius: calc(var(--radius) - 0.35rem);
+  background: #f5f3ee;
+  line-height: 0;
+}
+
+.color-card__media img {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
   object-fit: contain;
   object-position: center center;
-  border-radius: 0.75rem;
-  background: rgba(255, 255, 255, 0.45);
-}
-
-.color-gallery__item figcaption {
-  margin-top: 0.6rem;
-  text-align: center;
-  font-family: var(--font-display);
-  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
-  font-weight: 500;
-  font-style: italic;
-  color: var(--violet-deep);
-  line-height: 1.25;
+  border-radius: 0;
 }
 
 .faq-grid {
