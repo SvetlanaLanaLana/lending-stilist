@@ -8,7 +8,8 @@
     about: 3,
     "why-clothes": 4,
     formats: 5,
-    contact: 6,
+    "color-examples": 6,
+    contact: 7,
   };
 
   function prefersReducedMotion() {
