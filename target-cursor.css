@@ -1,0 +1,91 @@
+.target-cursor-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 10001;
+  transform: translate(-50%, -50%);
+}
+
+.target-cursor-dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  background: var(--violet, #8550a0);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+  box-shadow: 0 0 12px rgba(133, 80, 160, 0.45);
+}
+
+.target-cursor-corner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  border: 3px solid var(--violet, #8550a0);
+  will-change: transform;
+}
+
+.corner-tl {
+  transform: translate(-150%, -150%);
+  border-right: none;
+  border-bottom: none;
+}
+
+.corner-tr {
+  transform: translate(50%, -150%);
+  border-left: none;
+  border-bottom: none;
+}
+
+.corner-br {
+  transform: translate(50%, 50%);
+  border-left: none;
+  border-top: none;
+}
+
+.corner-bl {
+  transform: translate(-150%, 50%);
+  border-right: none;
+  border-top: none;
+}
+
+html.has-target-cursor,
+html.has-target-cursor * {
+  cursor: none !important;
+}
+
+html.has-target-cursor input,
+html.has-target-cursor textarea,
+html.has-target-cursor select,
+html.has-target-cursor label.booking-form__checkbox {
+  cursor: auto !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .target-cursor-wrapper {
+    display: none !important;
+  }
+
+  html.has-target-cursor,
+  html.has-target-cursor * {
+    cursor: auto !important;
+  }
+}
+
+@media (max-width: 768px), (hover: none) {
+  .target-cursor-wrapper {
+    display: none !important;
+  }
+
+  html.has-target-cursor,
+  html.has-target-cursor * {
+    cursor: auto !important;
+  }
+}

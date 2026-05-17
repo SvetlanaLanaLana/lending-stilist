@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="gradient-text.css">
+  <link rel="stylesheet" href="target-cursor.css">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -62,7 +63,8 @@
   </header>
 
   <nav class="section-nav reveal" aria-label="Разделы сайта">
-    <div class="container section-nav__grid">
+    <div class="container section-nav__grid" data-section-slide-tabs>
+      <span class="section-nav__slide" aria-hidden="true"></span>
       <a class="section-nav__card" href="#requests">
         <span class="section-nav__num">01</span>
         <span class="section-nav__label">Для вас</span>
@@ -260,6 +262,9 @@
     </div>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
+  <script src="slide-tabs.js" defer></script>
+  <script src="target-cursor.js" defer></script>
   <script src="split-text.js" defer></script>
   <script src="gradient-text.js" defer></script>
   <script src="nav.js" defer></script>

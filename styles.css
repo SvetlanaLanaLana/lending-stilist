@@ -421,12 +421,42 @@ p {
 }
 
 .section-nav__grid {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.65rem;
 }
 
+.section-nav__grid--gsap .section-nav__slide {
+  transition: none;
+}
+
+.section-nav__slide {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+  border-radius: var(--radius);
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.72);
+  box-shadow:
+    0 0 0 1px rgba(133, 80, 160, 0.2),
+    0 12px 32px rgba(133, 80, 160, 0.32);
+  transition:
+    left 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    top 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    width 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    height 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.25s ease;
+}
+
 .section-nav__card {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
@@ -440,24 +470,12 @@ p {
   box-shadow: var(--shadow-soft);
   letter-spacing: 0.3px;
   transition:
-    transform 0.4s ease,
-    box-shadow 0.4s ease,
-    background 0.4s ease;
-  animation: section-nav-float 5s ease-in-out infinite;
+    box-shadow 0.35s ease,
+    background 0.35s ease;
 }
-
-.section-nav__card:nth-child(2) { animation-delay: 1s; }
-.section-nav__card:nth-child(3) { animation-delay: 2s; }
-.section-nav__card:nth-child(4) { animation-delay: 3s; }
-.section-nav__card:nth-child(5) { animation-delay: 0.5s; }
-.section-nav__card:nth-child(6) { animation-delay: 1.5s; }
-.section-nav__card:nth-child(7) { animation-delay: 2.5s; }
-.section-nav__card:nth-child(8) { animation-delay: 3.5s; }
 
 .section-nav__card:hover,
 .section-nav__card:focus-visible {
-  animation-play-state: paused;
-  transform: translateY(-6px) scale(1.03);
   background: var(--gradient-btn-hover);
   box-shadow:
     var(--shadow),
@@ -466,16 +484,6 @@ p {
   outline: none;
 }
 
-@keyframes section-nav-float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-8px);
-  }
-}
 
 .section-nav__num {
   font-family: var(--font-body);
@@ -996,13 +1004,8 @@ html.js .reveal.is-visible {
     transition: none;
   }
 
-  .section-nav__card {
-    animation: none;
-  }
-
-  .section-nav__card:hover,
-  .section-nav__card:focus-visible {
-    transform: none;
+  .section-nav__slide {
+    transition: none;
   }
 }
 
