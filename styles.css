@@ -545,12 +545,14 @@ p {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: clamp(2rem, 4vw, 3.5rem);
   align-items: stretch;
+  min-height: clamp(26rem, 68vh, 38rem);
 }
 
 .hero__text {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-self: stretch;
   max-width: 36rem;
   padding-block: clamp(0.5rem, 2vw, 1.5rem);
 }
@@ -580,6 +582,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  align-self: stretch;
   margin: 0;
   padding: clamp(0.5rem, 2vw, 1.5rem);
   min-height: 100%;
@@ -592,6 +595,7 @@ p {
   left: 50%;
   width: min(100%, 24rem);
   aspect-ratio: 4 / 5;
+  max-height: min(72vh, 32rem);
   border: 1px solid var(--line-strong);
   border-radius: calc(var(--radius) + 0.25rem);
   transform: translate(-50%, -50%);
@@ -605,12 +609,11 @@ p {
   display: block;
   width: min(100%, 24rem);
   aspect-ratio: 4 / 5;
-  height: auto;
   max-height: min(72vh, 32rem);
-  min-height: unset;
+  height: auto;
   margin: 0 auto;
   object-fit: cover;
-  object-position: center 18%;
+  object-position: center 12%;
   box-shadow: var(--shadow);
   border-radius: calc(var(--radius) + 0.25rem);
 }
@@ -1153,6 +1156,10 @@ html.js .reveal.is-visible {
   .hero__content,
   .pricing {
     grid-template-columns: 1fr;
+  }
+
+  .hero__content {
+    min-height: unset;
   }
 
   .hero__text {
