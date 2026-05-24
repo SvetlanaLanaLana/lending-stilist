@@ -613,7 +613,7 @@ p {
   height: auto;
   margin: 0 auto;
   object-fit: cover;
-  object-position: center 12%;
+  object-position: center top;
   box-shadow: var(--shadow);
   border-radius: calc(var(--radius) + 0.25rem);
 }
