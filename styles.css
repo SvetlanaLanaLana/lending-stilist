@@ -846,6 +846,62 @@ details p,
   background-image: var(--gradient-color-examples);
 }
 
+.for-you-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2.5vw, 1.35rem);
+  margin-top: 1.75rem;
+}
+
+.for-you-card {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: clamp(0.85rem, 1.5vw, 1.1rem);
+  background: var(--glass);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease;
+}
+
+.for-you-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow);
+}
+
+.for-you-card__text {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+.for-you-card__media {
+  overflow: hidden;
+  border-radius: calc(var(--radius) - 0.35rem);
+  background: var(--color-card-inner);
+  line-height: 0;
+  margin-top: auto;
+}
+
+.for-you-card__media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: center center;
+}
+
 .color-gallery {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1090,6 +1146,7 @@ html.js .reveal.is-visible {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .for-you-gallery,
   .color-gallery {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1214,6 +1271,7 @@ html.js .reveal.is-visible {
     grid-template-columns: 1fr;
   }
 
+  .for-you-gallery,
   .color-gallery {
     grid-template-columns: 1fr;
     gap: 0.85rem;
