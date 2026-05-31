@@ -1389,6 +1389,12 @@ html.js .reveal.is-visible {
   box-shadow: 0 0 0 3px rgba(133, 80, 160, 0.15);
 }
 
+.booking-form__textarea {
+  resize: vertical;
+  min-height: 5.5rem;
+  line-height: 1.55;
+}
+
 .booking-form__field--checkbox {
   margin-bottom: 0.75rem;
 }

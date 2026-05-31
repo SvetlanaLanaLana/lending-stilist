@@ -42,6 +42,7 @@
     name: String(formData.get("name") || "").trim(),
     email: String(formData.get("email") || "").trim(),
     phone: String(formData.get("phone") || "").trim(),
+    purpose: String(formData.get("purpose") || "").trim(),
     consent: String(formData.get("consent") || ""),
     _subject: "Новая заявка с сайта — консультация",
     _template: "table",
@@ -69,6 +70,8 @@
         name: payload.name,
         email: payload.email,
         phone: payload.phone,
+        purpose: payload.purpose,
+        message: payload.purpose,
         consent: payload.consent,
       }),
     });
