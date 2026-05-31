@@ -466,6 +466,16 @@
 
       <form class="booking-form" id="booking-form" novalidate>
 
+        <input type="hidden" name="_subject" value="Новая заявка с сайта — консультация">
+
+        <input type="hidden" name="_template" value="table">
+
+        <input type="hidden" name="_captcha" value="false">
+
+        <input type="hidden" name="_replyto" value="">
+
+        <input type="text" name="_honey" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+
         <div class="booking-form__field">
 
           <label class="booking-form__label" for="booking-name">Имя</label>
@@ -525,6 +535,8 @@
   <script src="gradient-text.js" defer></script>
 
   <script src="nav.js" defer></script>
+
+  <script src="form-config.js" defer></script>
 
   <script src="booking-modal.js" defer></script>
 

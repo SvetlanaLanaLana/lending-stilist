@@ -1,5 +1,11 @@
 (function () {
-  const FORM_ENDPOINT = "https://formsubmit.co/ajax/svpodols@mail.ru";
+  const config = window.FORM_CONFIG || {};
+  const FORM_EMAIL = config.recipientEmail || "svpodols@mail.ru";
+  const WEB3FORMS_KEY = (config.web3formsAccessKey || "").trim();
+  const FORM_ENDPOINT = "https://formsubmit.co/ajax/" + encodeURIComponent(FORM_EMAIL);
+  const FORM_ACTION = "https://formsubmit.co/" + encodeURIComponent(FORM_EMAIL);
+  const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+
   const modal = document.getElementById("booking-modal");
   const form = document.getElementById("booking-form");
   if (!modal || !form) return;
@@ -12,6 +18,7 @@
   const closers = modal.querySelectorAll("[data-booking-close]");
 
   let lastFocus = null;
+  let submitFrame = null;
 
   const setMessage = (el, text) => {
     if (!el) return;
@@ -29,6 +36,143 @@
     setMessage(successEl, "");
     submitBtn.disabled = false;
     submitBtn.textContent = "Отправить заявку";
+  };
+
+  const buildPayload = (formData) => ({
+    name: String(formData.get("name") || "").trim(),
+    email: String(formData.get("email") || "").trim(),
+    phone: String(formData.get("phone") || "").trim(),
+    consent: String(formData.get("consent") || ""),
+    _subject: "Новая заявка с сайта — консультация",
+    _template: "table",
+    _captcha: "false",
+    _replyto: String(formData.get("email") || "").trim(),
+  });
+
+  const showSuccess = () => {
+    form.reset();
+    setMessage(successEl, "Спасибо! Заявка отправлена. Скоро свяжусь с вами.");
+    submitBtn.textContent = "Отправлено";
+  };
+
+  const submitViaWeb3Forms = async (payload) => {
+    const response = await fetch(WEB3FORMS_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        access_key: WEB3FORMS_KEY,
+        subject: "Новая заявка с сайта — консультация",
+        from_name: payload.name,
+        name: payload.name,
+        email: payload.email,
+        phone: payload.phone,
+        consent: payload.consent,
+      }),
+    });
+
+    let data = {};
+    try {
+      data = await response.json();
+    } catch (_) {
+      /* ignore */
+    }
+
+    if (!response.ok || !data.success) {
+      throw new Error(data.message || "Не удалось отправить заявку.");
+    }
+
+    return data;
+  };
+
+  const submitViaJson = async (payload) => {
+    const response = await fetch(FORM_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    let data = {};
+    try {
+      data = await response.json();
+    } catch (_) {
+      /* ignore */
+    }
+
+    if (!response.ok) {
+      throw new Error(data.message || "Не удалось отправить заявку.");
+    }
+
+    return data;
+  };
+
+  const ensureSubmitFrame = () => {
+    if (submitFrame) return submitFrame;
+    submitFrame = document.createElement("iframe");
+    submitFrame.name = "booking-form-frame";
+    submitFrame.id = "booking-form-frame";
+    submitFrame.hidden = true;
+    submitFrame.title = "Отправка заявки";
+    document.body.appendChild(submitFrame);
+    return submitFrame;
+  };
+
+  const submitViaIframe = () =>
+    new Promise((resolve, reject) => {
+      const frame = ensureSubmitFrame();
+      let settled = false;
+      let armed = false;
+
+      const finish = (ok, message) => {
+        if (settled) return;
+        settled = true;
+        frame.removeEventListener("load", onLoad);
+        form.removeAttribute("target");
+        window.clearTimeout(timer);
+        if (ok) resolve();
+        else reject(new Error(message));
+      };
+
+      const onLoad = () => {
+        if (!armed) return;
+        finish(true);
+      };
+
+      const timer = window.setTimeout(() => finish(true), 10000);
+
+      frame.addEventListener("load", onLoad);
+
+      const replyto = form.querySelector('input[name="_replyto"]');
+      const email = form.querySelector("#booking-email");
+      if (replyto && email) replyto.value = email.value.trim();
+
+      form.action = FORM_ACTION;
+      form.method = "POST";
+      form.target = "booking-form-frame";
+      armed = true;
+      form.submit();
+    });
+
+  const sendApplication = async (payload) => {
+    if (WEB3FORMS_KEY) {
+      await submitViaWeb3Forms(payload);
+      return;
+    }
+
+    try {
+      await submitViaJson(payload);
+    } catch (jsonErr) {
+      try {
+        await submitViaIframe();
+      } catch (iframeErr) {
+        throw jsonErr;
+      }
+    }
   };
 
   const openModal = () => {
@@ -93,32 +237,35 @@
       return;
     }
 
-    const formData = new FormData(form);
-    formData.append("_subject", "Новая заявка с сайта — консультация");
-    formData.append("_template", "table");
-    formData.append("_captcha", "false");
+    const payload = buildPayload(new FormData(form));
 
     submitBtn.disabled = true;
     submitBtn.textContent = "Отправляем…";
 
     try {
-      const response = await fetch(FORM_ENDPOINT, {
-        method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" },
-      });
+      await sendApplication(payload);
+      showSuccess();
+    } catch (err) {
+      const needsKey = !WEB3FORMS_KEY;
+      const isNetwork =
+        err.message === "Failed to fetch" || err.name === "TypeError";
 
-      const data = await response.json().catch(() => ({}));
+      let message =
+        err.message && err.message !== "Failed to fetch"
+          ? err.message
+          : "Не удалось отправить заявку.";
 
-      if (!response.ok) {
-        throw new Error(data.message || "Не удалось отправить заявку. Попробуйте позже.");
+      if (isNetwork && needsKey) {
+        message =
+          "Сервис отправки недоступен. Добавьте ключ Web3Forms в form-config.js (инструкция в файле) или напишите на " +
+          FORM_EMAIL;
+      } else if (isNetwork) {
+        message = "Проверьте интернет и попробуйте снова или напишите на " + FORM_EMAIL;
+      } else if (needsKey) {
+        message += " Напишите на " + FORM_EMAIL + " или настройте form-config.js.";
       }
 
-      form.reset();
-      setMessage(successEl, "Спасибо! Заявка отправлена. Скоро свяжусь с вами.");
-      submitBtn.textContent = "Отправлено";
-    } catch (err) {
-      setMessage(errorEl, err.message || "Ошибка отправки. Проверьте интернет и попробуйте снова.");
+      setMessage(errorEl, message);
       submitBtn.disabled = false;
       submitBtn.textContent = "Отправить заявку";
     }
