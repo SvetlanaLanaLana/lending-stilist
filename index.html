@@ -1,346 +1,267 @@
-﻿<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Светлана Подольская — имиджмейкер</title>
-  <meta name="description" content="Спокойные консультации по стилю без давления и шаблонов. Разбор гардероба, подбор цветов и фасонов, бережный подход.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="gradient-text.css">
-  <link rel="stylesheet" href="target-cursor.css">
-  <script>document.documentElement.classList.add("js");</script>
-</head>
-<body>
-  <header class="site-header" data-site-header>
-    <div class="site-header__bar container">
-      <a href="#top" class="site-header__brand">
-        <span class="site-header__monogram" aria-hidden="true">СП</span>
-        <span class="site-header__name">Светлана Подольская</span>
-      </a>
-      <button type="button" class="site-header__toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav-panel">
-        <span class="visually-hidden">Меню</span>
-        <span class="site-header__toggle-bar" aria-hidden="true"></span>
-        <span class="site-header__toggle-bar" aria-hidden="true"></span>
-      </button>
-      <nav class="site-header__nav" id="site-nav-panel" data-nav-panel aria-label="Основное меню">
-        <a href="#requests">Для вас</a>
-        <a href="#results">Результат</a>
-        <a href="#process">Процесс</a>
-        <a href="#about">О себе</a>
-        <a href="#why-clothes">Почему вещи не работают</a>
-        <a href="#formats">Услуги</a>
-        <a href="#color-examples">Примеры цветов</a>
-        <a href="#contact">Контакты</a>
-        <a href="#" class="site-header__nav-cta" data-booking-open>Записаться</a>
-      </nav>
-    </div>
-  </header>
-
-  <header class="hero" id="top">
-    <div class="container hero__content">
-      <div class="hero__text">
-        <p class="hero__meta">Светлана Подольская • консультант по стилю</p>
-        <h1 class="split-text gradient-text" data-split-text data-gradient-text>
-          <span class="split-line">Стиль,</span>
-          <span class="split-line">в котором</span>
-          <span class="split-line">комфортно</span>
-          <span class="split-line">быть собой</span>
-        </h1>
-        <p class="lead">
-          «Персональный разбор фигуры, цветотипа и гардероба»
-  
-          
-        </p>
-        <a href="#" class="btn" data-booking-open>Записаться на консультацию</a>
-        <p class="hero__note">Спокойный и бережный подход без критики и навязанных стандартов.</p>
-      </div>
-      <div class="hero__photo" aria-label="Фото Светланы">
-        <img src="image/Sveta2.jpg" alt="Светлана Подольская, консультант по стилю" width="720" height="900">
-      </div>
-    </div>
-  </header>
-
-  <nav class="section-nav reveal" aria-label="Разделы сайта">
-    <div class="container section-nav__grid" data-section-slide-tabs>
-      <span class="section-nav__slide" aria-hidden="true"></span>
-      <a class="section-nav__card" href="#requests">
-        <span class="section-nav__num">01</span>
-        <span class="section-nav__label">Для вас</span>
-      </a>
-      <a class="section-nav__card" href="#results">
-        <span class="section-nav__num">02</span>
-        <span class="section-nav__label">Результат</span>
-      </a>
-      <a class="section-nav__card" href="#process">
-        <span class="section-nav__num">03</span>
-        <span class="section-nav__label">Процесс</span>
-      </a>
-      <a class="section-nav__card" href="#about">
-        <span class="section-nav__num">04</span>
-        <span class="section-nav__label">О себе</span>
-      </a>
-      <a class="section-nav__card" href="#why-clothes">
-        <span class="section-nav__num">05</span>
-        <span class="section-nav__label section-nav__label--lines">
-          <span>Почему вещи</span>
-          <span>не работают</span>
-        </span>
-      </a>
-      <a class="section-nav__card" href="#formats">
-        <span class="section-nav__num">06</span>
-        <span class="section-nav__label">Услуги</span>
-      </a>
-      <a class="section-nav__card" href="#color-examples">
-        <span class="section-nav__num">07</span>
-        <span class="section-nav__label section-nav__label--lines">
-          <span>Примеры цветовых</span>
-          <span>сочетаний</span>
-        </span>
-      </a>
-      <a class="section-nav__card" href="#contact">
-        <span class="section-nav__num">08</span>
-        <span class="section-nav__label">Контакты</span>
-      </a>
-    </div>
-  </nav>
-
-  <main>
-    <section class="section" id="requests">
-      <div class="container">
-        <h2 class="reveal section-title gradient-text" data-gradient-text>Это для вас, если:</h2>
-        <div class="for-you-gallery reveal-stagger" role="group" aria-label="Ситуации, с которыми можно обратиться">
-          <article class="for-you-card reveal">
-            <p class="for-you-card__text">Полный шкаф одежды, но каждый день начинается с фразы «нечего надеть?».</p>
-            <div class="for-you-card__media">
-              <img src="image/1%20skaf.jpg" alt="" width="800" height="500" loading="lazy">
-            </div>
-          </article>
-          <article class="for-you-card reveal">
-            <p class="for-you-card__text">Покупаете вещи на распродажах, которые потом годами висят в шкафу?</p>
-            <div class="for-you-card__media">
-              <img src="image/2sale.jpg" alt="" width="800" height="500" loading="lazy">
-            </div>
-          </article>
-          <article class="for-you-card reveal">
-            <p class="for-you-card__text">Не понимаете, какие фасоны и цвета действительно украшают вас?</p>
-            <div class="for-you-card__media">
-              <img src="image/3color.jpg" alt="" width="800" height="500" loading="lazy">
-            </div>
-          </article>
-          <article class="for-you-card reveal">
-            <p class="for-you-card__text">Не знаете как определить свой тип фигуры?</p>
-            <div class="for-you-card__media">
-              <img src="image/4.body2.jpg" alt="" width="800" height="500" loading="lazy">
-            </div>
-          </article>
-        </div>
-        <a href="#" class="btn btn--light reveal" data-booking-open>Обсудить свой запрос</a>
-      </div>
-    </section>
-
-    <section class="section section--alt" id="results">
-      <div class="container">
-        <h2 class="reveal section-title gradient-text" data-gradient-text>В результате совместной работы, вы:</h2>
-        <ul class="list reveal-stagger">
-          <li class="reveal">научитесь выбирать одежду под свою внешность, а не только под тренды</li>
-          <li class="reveal">узнаете свои цвета и сможете выбирать те, которые освежают лицо и делают внешность ярче</li>
-          <li class="reveal">сократите лишние траты на случайные покупки</li>
-          <li class="reveal">научитесь собирать гардероб, где вещи сочетаются между собой</li>
-          <li class="reveal">поймёте, какие украшения, прически, очки и вырезы подходят именно вашему типу лица</li>
-          <li class="reveal">начнёте получать больше комплиментов и чувствовать себя увереннее</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section" id="process">
-      <div class="container">
-        <h2 class="reveal section-title gradient-text" data-gradient-text>Как проходит работа</h2>
-        <ol class="steps reveal-stagger">
-          <li class="reveal">
-            <h3>Знакомство</h3>
-            <p>Обсуждаем ваш запрос, образ жизни и пожелания.</p>
-          </li>
-          <li class="reveal">
-            <h3>Анализ внешности</h3>
-            <p>Определяем особенности фигуры, цветотип и подходящие стилистические решения.</p>
-          </li>
-          <li class="reveal">
-            <h3>Работа с гардеробом</h3>
-            <p>Разбираем вещи и смотрим, как сделать гардероб более удобным и цельным.</p>
-          </li>
-          <li class="reveal">
-            <h3>Рекомендации</h3>
-            <p>Вы получаете понятные рекомендации без перегруза и сложных правил.</p>
-          </li>
-        </ol>
-        <a href="#" class="btn reveal" data-booking-open>Записаться на консультацию</a>
-      </div>
-    </section>
-
-    <section class="section section--alt" id="about">
-      <div class="container">
-        <h2 class="reveal section-title gradient-text" data-gradient-text>О себе</h2>
-        <p class="reveal"><strong>Светлана Подольская</strong> — консультант.</p>
-        <p class="reveal">С 2023 по 2026 год обучалась в IQ STYLE SCHOOL.</p>
-        <p class="reveal">Закончила курсы: «Рецепты стиля», «Три кита стиля», «Код женственности».</p>
-        <p class="reveal">Член «Клуба хорошего вкуса» при IQ STYLE SCHOOL.</p>
-        <p class="reveal">В 2025 году прошла обучение по Программе «Преображение» у стилиста-имиджмейкера Ольги Крюковой.</p>
-        <p class="reveal">Помогаю женщинам выстраивать комфортный и современный стиль без давления и жестких шаблонов.</p>
-        <div class="about-ba reveal-stagger" role="group" aria-label="Фотографии из практики">
-          <figure class="about-ba__item reveal">
-            <img src="image/to11.jpg" alt="До преображения" width="600" height="600" loading="lazy">
-            <figcaption>До Преображения</figcaption>
-          </figure>
-          <figure class="about-ba__item reveal">
-            <img src="image/after2.jpg" alt="После преображения" width="600" height="600" loading="lazy">
-            <figcaption>После Преображения</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="why-clothes">
-      <div class="container">
-        <h2 class="reveal section-title gradient-text why-clothes__title" data-gradient-text>Почему вещи не работают</h2>
-        <p class="reveal why-clothes__intro">потому что большинство женщин</p>
-        <ul class="list reveal-stagger">
-          <li class="reveal">покупают вещи импульсивно</li>
-          <li class="reveal">не знают свой тип фигуры</li>
-          <li class="reveal">ориентируются на тренды, а не на себя</li>
-          <li class="reveal">выбирают цвета, которые «глушат» внешность</li>
-          <li class="reveal">не понимают, как сочетать вещи между собой</li>
-        </ul>
-        <p class="section__note reveal">Именно поэтому часть одежды остается неношеной.</p>
-      </div>
-    </section>
-
-    <section class="section section--alt" id="formats">
-      <div class="container">
-        <h2 class="reveal section-title gradient-text" data-gradient-text>Форматы работы</h2>
-        <div class="pricing">
-          <div class="reveal">
-            <h3>Варианты услуг</h3>
-            <ul class="list reveal-stagger">
-              <li class="reveal">анализ фигуры, лица</li>
-              <li class="reveal">определение цветотипа</li>
-              <li class="reveal">разбор гардероба</li>
-              <li class="reveal">составление базового гардероба</li>
-            </ul>
-          </div>
-          <div class="price-box reveal">
-            <p><span>Стоимость</span> от 3 тыс. руб., зависит от выбора услуги</p>
-            <p><span>Формат</span> Онлайн / офлайн</p>
-            <a href="#" class="btn btn--full" data-booking-open>Уточнить стоимость</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--color-examples" id="color-examples">
-      <div class="container">
-        <h2 class="reveal section-title gradient-text color-examples__title" data-gradient-text>Примеры цветовых сочетаний</h2>
-        <p class="section-lead color-examples__lead reveal">Принципы и правила гармоничных цветовых сочетаний в образах</p>
-        <div class="color-gallery reveal-stagger" role="group" aria-label="Примеры цветовых сочетаний">
-          <article class="color-card reveal">
-            <div class="color-card__media">
-              <img src="image/mono.jpg" alt="Монохромное цветовое сочетание" width="960" height="540" loading="lazy">
-            </div>
-          </article>
-          <article class="color-card reveal">
-            <div class="color-card__media">
-              <img src="image/analog.jpg" alt="Аналоговое цветовое сочетание" width="960" height="540" loading="lazy">
-            </div>
-          </article>
-          <article class="color-card reveal">
-            <div class="color-card__media">
-              <img src="image/kontrast.jpg" alt="Контрастное цветовое сочетание" width="960" height="540" loading="lazy">
-            </div>
-          </article>
-          <article class="color-card reveal">
-            <div class="color-card__media">
-              <img src="image/kontrast3.jpg" alt="Контрастное цветовое сочетание" width="960" height="540" loading="lazy">
-            </div>
-          </article>
-          <article class="color-card reveal">
-            <div class="color-card__media">
-              <img src="image/triada.jpg" alt="Триадное цветовое сочетание" width="960" height="540" loading="lazy">
-            </div>
-          </article>
-          <article class="color-card reveal">
-            <div class="color-card__media">
-              <img src="image/triada2.jpg" alt="Триадное цветовое сочетание" width="960" height="540" loading="lazy">
-            </div>
-          </article>
-          <article class="color-card reveal">
-            <div class="color-card__media">
-              <img src="image/pr1.jpg" alt="Пример цветового сочетания в образе" width="960" height="540" loading="lazy">
-            </div>
-          </article>
-          <article class="color-card reveal">
-            <div class="color-card__media">
-              <img src="image/pr2.jpg" alt="Пример цветового сочетания в образе" width="960" height="540" loading="lazy">
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="section final" id="contact">
-    <div class="container">
-      <h2 class="reveal section-title gradient-text" data-gradient-text>Стиль начинается<br>с понимания себя</h2>
-      <p class="reveal">
-        Запишитесь на персональную консультацию и получите рекомендации, которые подойдут именно вам.
-      </p>
-      <a href="#" class="btn reveal" data-booking-open>Записаться на консультацию</a>
-    </div>
-  </footer>
-  <div class="booking-modal" id="booking-modal" hidden aria-hidden="true">
-    <div class="booking-modal__backdrop" data-booking-close tabindex="-1" aria-hidden="true"></div>
-    <div class="booking-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="booking-modal-title">
-      <button type="button" class="booking-modal__close" data-booking-close aria-label="Закрыть">
-        <span aria-hidden="true">&times;</span>
-      </button>
-      <h2 class="booking-modal__title" id="booking-modal-title">Запись на консультацию</h2>
-      <p class="booking-modal__lead">Оставьте контакты — свяжусь с вами, чтобы обсудить запрос.</p>
-
-      <form class="booking-form" id="booking-form" novalidate>
-        <div class="booking-form__field">
-          <label class="booking-form__label" for="booking-name">Имя</label>
-          <input class="booking-form__input" type="text" id="booking-name" name="name" autocomplete="name" required placeholder="Как к вам обращаться">
-        </div>
-        <div class="booking-form__field">
-          <label class="booking-form__label" for="booking-email">Почта</label>
-          <input class="booking-form__input" type="email" id="booking-email" name="email" autocomplete="email" required placeholder="example@mail.ru">
-        </div>
-        <div class="booking-form__field">
-          <label class="booking-form__label" for="booking-phone">Номер телефона</label>
-          <input class="booking-form__input" type="tel" id="booking-phone" name="phone" autocomplete="tel" required placeholder="+7 (___) ___-__-__">
-        </div>
-        <div class="booking-form__field booking-form__field--checkbox">
-          <label class="booking-form__checkbox">
-            <input type="checkbox" id="booking-consent" name="consent" value="Да" required>
-            <span>Даю согласие на обработку моих персональных данных</span>
-          </label>
-        </div>
-        <p class="booking-form__error" id="booking-form-error" hidden></p>
-        <p class="booking-form__success" id="booking-form-success" hidden>Спасибо! Заявка отправлена. Скоро свяжусь с вами.</p>
-        <button type="submit" class="btn btn--full booking-form__submit" id="booking-submit">Отправить заявку</button>
-      </form>
-    </div>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
-  <script src="slide-tabs.js" defer></script>
-  <script src="target-cursor.js" defer></script>
-  <script src="split-text.js" defer></script>
-  <script src="gradient-text.js" defer></script>
-  <script src="nav.js" defer></script>
-  <script src="booking-modal.js" defer></script>
-  <script src="script.js" defer></script>
-</body>
-</html>
-
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Светлана Подольская — консультант по стилю</title>
+  <meta name="description" content="Консультации по стилю без давления и шаблонов. Разбор гардероба, подбор цветов и фасонов, бережный подход.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="gradient-text.css">
+  <link rel="stylesheet" href="target-cursor.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <header class="site-header" data-site-header>
+    <div class="site-header__bar container">
+      <a href="#top" class="site-header__brand">
+        <span class="site-header__monogram" aria-hidden="true">СП</span>
+        <span class="site-header__name">Светлана Подольская</span>
+      </a>
+      <button type="button" class="site-header__toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav-panel">
+        <span class="visually-hidden">Меню</span>
+        <span class="site-header__toggle-bar" aria-hidden="true"></span>
+        <span class="site-header__toggle-bar" aria-hidden="true"></span>
+      </button>
+      <nav class="site-header__nav" id="site-nav-panel" data-nav-panel aria-label="Основное меню">
+        <a href="#requests">Для вас</a>
+        <a href="#results">Результат</a>
+        <a href="#process">Процесс</a>
+        <a href="#about">О себе</a>
+        <a href="#formats">Услуги</a>
+        <a href="#color-examples">Примеры</a>
+        <a href="#contact">Запись</a>
+        <a href="#" class="site-header__nav-cta" data-booking-open>Записаться</a>
+      </nav>
+    </div>
+  </header>
+
+  <header class="hero" id="top">
+    <div class="container hero__content">
+      <div class="hero__text">
+        <p class="hero__meta">Светлана Подольская • консультант по стилю</p>
+        <h1 class="split-text gradient-text" data-split-text data-gradient-text>
+          <span class="split-line">Стиль,</span>
+          <span class="split-line">в котором</span>
+          <span class="split-line">комфортно</span>
+          <span class="split-line">быть собой</span>
+        </h1>
+        <p class="lead">Персональный разбор фигуры, цветотипа и гардероба</p>
+        <a href="#" class="btn" data-booking-open>Записаться на консультацию</a>
+        <p class="hero__note">Спокойный и бережный подход без критики и навязанных стандартов.</p>
+      </div>
+      <div class="hero__photo" aria-label="Фото Светланы">
+        <img src="image/Sveta2.jpg" alt="Светлана Подольская, консультант по стилю" width="720" height="900">
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="requests">
+      <div class="container">
+        <h2 class="reveal section-title">Это для вас, если:</h2>
+        <div class="for-you-gallery reveal-stagger" role="group" aria-label="Ситуации, с которыми можно обратиться">
+          <article class="for-you-card reveal">
+            <p class="for-you-card__text">Полный шкаф одежды, но каждый день начинается с фразы «нечего надеть?».</p>
+            <div class="for-you-card__media">
+              <img src="image/1%20skaf.jpg" alt="Переполненный шкаф с одеждой" width="800" height="500" loading="lazy">
+            </div>
+          </article>
+          <article class="for-you-card reveal">
+            <p class="for-you-card__text">Покупаете вещи на распродажах, которые потом годами висят в шкафу?</p>
+            <div class="for-you-card__media">
+              <img src="image/2sale.jpg" alt="Одежда, купленная на распродаже" width="800" height="500" loading="lazy">
+            </div>
+          </article>
+          <article class="for-you-card reveal">
+            <p class="for-you-card__text">Не понимаете, какие фасоны и цвета действительно украшают вас?</p>
+            <div class="for-you-card__media">
+              <img src="image/3color.jpg" alt="Подбор цветов в гардеробе" width="800" height="500" loading="lazy">
+            </div>
+          </article>
+          <article class="for-you-card reveal">
+            <p class="for-you-card__text">Не знаете, как определить свой тип фигуры?</p>
+            <div class="for-you-card__media">
+              <img src="image/4.body2.jpg" alt="Определение типа фигуры" width="800" height="500" loading="lazy">
+            </div>
+          </article>
+        </div>
+        <p class="section__note reveal">Часто вещи не работают из‑за импульсных покупок, трендов «не про вас» и цветов, которые глушат внешность — с этим мы и разбираемся на консультации.</p>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="results">
+      <div class="container">
+        <h2 class="reveal section-title">В результате совместной работы вы:</h2>
+        <ul class="list reveal-stagger">
+          <li class="reveal">научитесь выбирать одежду под свою внешность, а не только под тренды</li>
+          <li class="reveal">узнаете свои цвета и будете выбирать оттенки, которые освежают лицо</li>
+          <li class="reveal">соберёте гардероб, где вещи сочетаются между собой, без лишних трат</li>
+          <li class="reveal">почувствуете себя увереннее в повседневных и особенных образах</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="container">
+        <h2 class="reveal section-title">Как проходит работа</h2>
+        <ol class="steps reveal-stagger">
+          <li class="reveal">
+            <h3>Знакомство</h3>
+            <p>Обсуждаем ваш запрос, образ жизни и пожелания.</p>
+          </li>
+          <li class="reveal">
+            <h3>Анализ внешности</h3>
+            <p>Определяем особенности фигуры, цветотип и подходящие стилистические решения.</p>
+          </li>
+          <li class="reveal">
+            <h3>Работа с гардеробом</h3>
+            <p>Разбираем вещи и смотрим, как сделать гардероб более удобным и цельным.</p>
+          </li>
+          <li class="reveal">
+            <h3>Рекомендации</h3>
+            <p>Вы получаете понятные рекомендации без перегруза и сложных правил.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="about">
+      <div class="container">
+        <h2 class="reveal section-title">О себе</h2>
+        <p class="reveal about__lead"><strong>Светлана Подольская</strong> — консультант по стилю. Помогаю женщинам выстраивать комфортный и современный образ без давления и жёстких шаблонов.</p>
+        <p class="reveal about__creds">Обучение в IQ Style School (2023–2026), программа «Преображение» у консультанта по стилю Ольги Крюковой, член «Клуба хорошего вкуса».</p>
+        <div class="about-ba reveal-stagger" role="group" aria-label="Фотографии из практики">
+          <figure class="about-ba__item reveal">
+            <img src="image/to11.jpg" alt="До преображения" width="600" height="600" loading="lazy">
+            <figcaption>До преображения</figcaption>
+          </figure>
+          <figure class="about-ba__item reveal">
+            <img src="image/after2.jpg" alt="После преображения" width="600" height="600" loading="lazy">
+            <figcaption>После преображения</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="formats">
+      <div class="container">
+        <h2 class="reveal section-title">Форматы работы</h2>
+        <div class="pricing">
+          <div class="reveal">
+            <ul class="list reveal-stagger">
+              <li class="reveal">анализ фигуры и лица</li>
+              <li class="reveal">определение цветотипа</li>
+              <li class="reveal">разбор гардероба</li>
+              <li class="reveal">составление базового гардероба</li>
+            </ul>
+          </div>
+          <div class="price-box reveal">
+            <p><span>Стоимость</span> от 3 тыс. руб., зависит от выбора услуги</p>
+            <p><span>Формат</span> онлайн / офлайн</p>
+            <a href="#" class="btn btn--full" data-booking-open>Уточнить стоимость</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--color-examples" id="color-examples">
+      <div class="container">
+        <h2 class="reveal section-title color-examples__title">Примеры цветовых сочетаний</h2>
+        <p class="section-lead color-examples__lead reveal">Принципы гармоничных сочетаний в образах</p>
+        <div class="color-gallery reveal-stagger" role="group" aria-label="Примеры цветовых сочетаний">
+          <figure class="color-card reveal">
+            <div class="color-card__media">
+              <img src="image/mono.jpg" alt="Монохромное сочетание" width="960" height="540" loading="lazy">
+            </div>
+            <figcaption class="color-card__caption">Монохром</figcaption>
+          </figure>
+          <figure class="color-card reveal">
+            <div class="color-card__media">
+              <img src="image/analog.jpg" alt="Аналоговое сочетание" width="960" height="540" loading="lazy">
+            </div>
+            <figcaption class="color-card__caption">Аналоговая гамма</figcaption>
+          </figure>
+          <figure class="color-card reveal">
+            <div class="color-card__media">
+              <img src="image/kontrast.jpg" alt="Контрастное сочетание" width="960" height="540" loading="lazy">
+            </div>
+            <figcaption class="color-card__caption">Контраст</figcaption>
+          </figure>
+          <figure class="color-card reveal">
+            <div class="color-card__media">
+              <img src="image/triada.jpg" alt="Триадное сочетание" width="960" height="540" loading="lazy">
+            </div>
+            <figcaption class="color-card__caption">Триада</figcaption>
+          </figure>
+          <figure class="color-card reveal color-card--wide">
+            <div class="color-card__media">
+              <img src="image/pr1.jpg" alt="Цветовое сочетание в образе" width="960" height="540" loading="lazy">
+            </div>
+            <figcaption class="color-card__caption">Образ клиента</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="section final" id="contact">
+    <div class="container">
+      <h2 class="reveal section-title">Стиль начинается<br>с понимания себя</h2>
+      <p class="reveal">
+        Запишитесь на персональную консультацию — подберём формат и ответим на вопросы.
+      </p>
+      <a href="#" class="btn reveal" data-booking-open>Записаться на консультацию</a>
+      <div class="contact-block reveal">
+        <p class="contact-block__label">Связаться напрямую</p>
+        <a class="contact-block__link" href="mailto:svpodols@mail.ru">svpodols@mail.ru</a>
+      </div>
+    </div>
+  </footer>
+  <div class="booking-modal" id="booking-modal" hidden aria-hidden="true">
+    <div class="booking-modal__backdrop" data-booking-close tabindex="-1" aria-hidden="true"></div>
+    <div class="booking-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="booking-modal-title">
+      <button type="button" class="booking-modal__close" data-booking-close aria-label="Закрыть">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h2 class="booking-modal__title" id="booking-modal-title">Запись на консультацию</h2>
+      <p class="booking-modal__lead">Оставьте контакты — свяжусь с вами, чтобы обсудить запрос.</p>
+
+      <form class="booking-form" id="booking-form" novalidate>
+        <div class="booking-form__field">
+          <label class="booking-form__label" for="booking-name">Имя</label>
+          <input class="booking-form__input" type="text" id="booking-name" name="name" autocomplete="name" required placeholder="Как к вам обращаться">
+        </div>
+        <div class="booking-form__field">
+          <label class="booking-form__label" for="booking-email">Почта</label>
+          <input class="booking-form__input" type="email" id="booking-email" name="email" autocomplete="email" required placeholder="example@mail.ru">
+        </div>
+        <div class="booking-form__field">
+          <label class="booking-form__label" for="booking-phone">Номер телефона</label>
+          <input class="booking-form__input" type="tel" id="booking-phone" name="phone" autocomplete="tel" required placeholder="+7 (___) ___-__-__">
+        </div>
+        <div class="booking-form__field booking-form__field--checkbox">
+          <label class="booking-form__checkbox">
+            <input type="checkbox" id="booking-consent" name="consent" value="Да" required>
+            <span>Даю согласие на обработку моих персональных данных</span>
+          </label>
+        </div>
+        <p class="booking-form__error" id="booking-form-error" hidden></p>
+        <p class="booking-form__success" id="booking-form-success" hidden>Спасибо! Заявка отправлена. Скоро свяжусь с вами.</p>
+        <button type="submit" class="btn btn--full booking-form__submit" id="booking-submit">Отправить заявку</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
+  <script src="target-cursor.js" defer></script>
+  <script src="split-text.js" defer></script>
+  <script src="gradient-text.js" defer></script>
+  <script src="nav.js" defer></script>
+  <script src="booking-modal.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>
+
