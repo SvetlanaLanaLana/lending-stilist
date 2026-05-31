@@ -157,6 +157,7 @@ img {
 #about h2::before,
 #formats h2::before,
 #color-examples h2::before,
+#quiz h2::before,
 #contact h2::before {
   display: block;
   font-family: var(--font-body);
@@ -174,8 +175,9 @@ img {
 #about h2::before { content: "04 — о себе"; }
 #formats h2::before { content: "05 — услуги"; }
 #color-examples h2::before { content: "06 — цветовые сочетания"; }
+#quiz h2::before { content: "07 — квиз"; }
 #contact h2::before,
-.final h2::before { content: "07 — запись"; }
+.final h2::before { content: "08 — запись"; }
 
 .section-lead {
   font-family: var(--font-display);
@@ -890,6 +892,32 @@ details p,
 .contact-block__link:focus-visible {
   color: var(--violet-deep);
   border-bottom-color: var(--violet);
+}
+
+.quiz-teaser__title {
+  max-width: none;
+}
+
+.quiz-teaser {
+  max-width: 36rem;
+  padding: clamp(1.5rem, 4vw, 2rem);
+  background: var(--glass);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+}
+
+.quiz-teaser__lead {
+  margin: 0 0 1.35rem;
+  font-size: var(--text-lead);
+  color: var(--ink-muted);
+  line-height: 1.65;
+}
+
+.quiz-teaser__btn {
+  width: fit-content;
 }
 
 .faq-grid {
