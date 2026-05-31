@@ -187,15 +187,23 @@ img {
   max-width: 28ch;
 }
 
-.about__lead {
-  font-size: var(--text-lead);
-  max-width: 42ch;
+.about__text {
+  width: 100%;
+  margin-bottom: 1.75rem;
 }
 
-.about__creds {
-  color: var(--ink-muted);
-  font-size: var(--text-small);
-  max-width: 48ch;
+.about__text p {
+  margin: 0 0 1rem;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.75;
+  max-width: none;
+}
+
+.about__text p:last-child {
+  margin-bottom: 0;
 }
 
 h1,
