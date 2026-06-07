@@ -1781,3 +1781,78 @@ html.js .reveal.is-visible {
   cursor: not-allowed;
   transform: none;
 }
+
+/* ——— Нижний блок: контакты и документы ——— */
+.site-footer {
+  padding: clamp(2rem, 5vw, 3rem) 0;
+  background-color: var(--beige-deep);
+  border-top: 1px solid var(--line);
+}
+
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem clamp(2rem, 8vw, 6rem);
+  max-width: 36rem;
+}
+
+.site-footer__title {
+  margin: 0 0 1rem;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.site-footer__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-footer__list li + li {
+  margin-top: 0.65rem;
+}
+
+.site-footer__contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: var(--text-body);
+  font-weight: 500;
+  color: var(--violet);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  transition: color 0.2s ease;
+}
+
+.site-footer__contact:hover,
+.site-footer__contact:focus-visible {
+  color: var(--violet-deep);
+  outline: none;
+}
+
+.site-footer__icon {
+  flex-shrink: 0;
+  color: var(--violet);
+}
+
+.site-footer__doc {
+  font-size: var(--text-body);
+  color: var(--ink-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.site-footer__doc:hover,
+.site-footer__doc:focus-visible {
+  color: var(--violet-deep);
+  outline: none;
+}
+
+@media (max-width: 540px) {
+  .site-footer__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
