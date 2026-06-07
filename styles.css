@@ -1561,6 +1561,15 @@ html.js .reveal.is-visible {
   color: var(--violet-deep);
 }
 
+.service-modal__package {
+  margin: 1rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-size: var(--text-small);
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+
 /* ——— Попап записи на консультацию ——— */
 .booking-modal {
   position: fixed;
