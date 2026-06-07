@@ -1856,3 +1856,70 @@ html.js .reveal.is-visible {
     gap: 2rem;
   }
 }
+
+/* ——— Юридические страницы ——— */
+.legal-page__container {
+  max-width: 46rem;
+}
+
+.legal-page__title {
+  margin-bottom: 0.5rem;
+}
+
+.legal-page__meta {
+  margin-bottom: 2rem;
+  color: var(--ink-muted);
+  font-size: var(--text-small);
+}
+
+.legal-doc {
+  border-top: 1px solid var(--line);
+}
+
+.legal-doc__section {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.legal-doc__section h2 {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.legal-doc__section p {
+  margin: 0 0 0.85rem;
+  font-size: var(--text-body);
+  line-height: 1.75;
+  color: var(--ink);
+}
+
+.legal-doc__section p:last-child {
+  margin-bottom: 0;
+}
+
+.legal-doc__section ul {
+  margin: 0 0 0.85rem;
+  padding-left: 1.25rem;
+  font-size: var(--text-body);
+  line-height: 1.7;
+  color: var(--ink);
+}
+
+.legal-doc__section li + li {
+  margin-top: 0.35rem;
+}
+
+.legal-doc__section a {
+  color: var(--violet);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.legal-doc__section a:hover,
+.legal-doc__section a:focus-visible {
+  color: var(--violet-deep);
+  outline: none;
+}
