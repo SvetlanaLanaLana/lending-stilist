@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Полезные советы — Светлана Подольская</title>
+  <meta name="description" content="Полезные советы по стилю: принципы цветовых сочетаний и мини-квиз подбора образа.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="gradient-text.css">
+  <link rel="stylesheet" href="target-cursor.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <header class="site-header" data-site-header>
+    <div class="site-header__bar container">
+      <a href="index.html" class="site-header__brand">
+        <span class="site-header__monogram" aria-hidden="true">СП</span>
+        <span class="site-header__name">Светлана Подольская</span>
+      </a>
+      <button type="button" class="site-header__toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav-panel">
+        <span class="visually-hidden">Меню</span>
+        <span class="site-header__toggle-bar" aria-hidden="true"></span>
+        <span class="site-header__toggle-bar" aria-hidden="true"></span>
+      </button>
+      <nav class="site-header__nav" id="site-nav-panel" data-nav-panel aria-label="Основное меню">
+        <a href="index.html#requests">Для вас</a>
+        <a href="index.html#results">Результат</a>
+        <a href="index.html#process">Процесс</a>
+        <a href="index.html#about">О себе</a>
+        <a href="index.html#formats">Услуги</a>
+        <a href="tips.html" aria-current="page">Полезные советы</a>
+        <a href="index.html#contact">Запись</a>
+        <a href="#" class="site-header__nav-cta" data-booking-open>Записаться</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section section--color-examples section--page-top" id="tips">
+      <div class="container">
+        <p class="page-back reveal"><a href="index.html">← На главную</a></p>
+        <h1 class="reveal section-title color-examples__title">Полезные советы</h1>
+        <p class="section-lead color-examples__lead reveal">Принципы гармоничных сочетаний в образах</p>
+        <div class="color-gallery reveal-stagger" role="group" aria-label="Примеры цветовых сочетаний">
+          <figure class="color-card reveal">
+            <div class="color-card__media">
+              <img src="image/mono.jpg" alt="Монохромное сочетание" width="960" height="540" loading="lazy">
+            </div>
+            <figcaption class="color-card__caption">Монохром</figcaption>
+          </figure>
+          <figure class="color-card reveal">
+            <div class="color-card__media">
+              <img src="image/analog.jpg" alt="Аналоговое сочетание" width="960" height="540" loading="lazy">
+            </div>
+            <figcaption class="color-card__caption">Аналоговая гамма</figcaption>
+          </figure>
+          <figure class="color-card reveal">
+            <div class="color-card__media">
+              <img src="image/kontrast.jpg" alt="Контрастное сочетание" width="960" height="540" loading="lazy">
+            </div>
+            <figcaption class="color-card__caption">Контраст</figcaption>
+          </figure>
+          <figure class="color-card reveal">
+            <div class="color-card__media">
+              <img src="image/triada.jpg" alt="Триадное сочетание" width="960" height="540" loading="lazy">
+            </div>
+            <figcaption class="color-card__caption">Триада</figcaption>
+          </figure>
+          <div class="quiz-teaser quiz-teaser--in-gallery reveal" id="quiz">
+            <p class="quiz-teaser__label">Квиз</p>
+            <h2 class="quiz-teaser__title">Попробуйте подбор образа</h2>
+            <p class="quiz-teaser__lead">Ответьте на 5 коротких вопросов в мини-квизе StyleLab — подберём образ под ваше настроение и повод. Это бесплатно и займёт пару минут.</p>
+            <a class="btn quiz-teaser__btn" href="https://svetlanalanalana.github.io/project_game_stilist/" target="_blank" rel="noopener noreferrer">Начать подбор</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="booking-modal" id="booking-modal" hidden aria-hidden="true">
+    <div class="booking-modal__backdrop" data-booking-close tabindex="-1" aria-hidden="true"></div>
+    <div class="booking-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="booking-modal-title">
+      <button type="button" class="booking-modal__close" data-booking-close aria-label="Закрыть">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h2 class="booking-modal__title" id="booking-modal-title">Запись на консультацию</h2>
+      <p class="booking-modal__lead">Оставьте контакты — свяжусь с вами, чтобы обсудить запрос.</p>
+      <form class="booking-form" id="booking-form" novalidate>
+        <input type="hidden" name="_subject" value="Новая заявка с сайта — консультация">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_replyto" value="">
+        <input type="text" name="_honey" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="booking-form__field">
+          <label class="booking-form__label" for="booking-name">Имя</label>
+          <input class="booking-form__input" type="text" id="booking-name" name="name" autocomplete="name" required placeholder="Как к вам обращаться">
+        </div>
+        <div class="booking-form__field">
+          <label class="booking-form__label" for="booking-email">Почта</label>
+          <input class="booking-form__input" type="email" id="booking-email" name="email" autocomplete="email" required placeholder="example@mail.ru">
+        </div>
+        <div class="booking-form__field">
+          <label class="booking-form__label" for="booking-phone">Номер телефона</label>
+          <input class="booking-form__input" type="tel" id="booking-phone" name="phone" autocomplete="tel" required placeholder="+7 (___) ___-__-__">
+        </div>
+        <div class="booking-form__field">
+          <label class="booking-form__label" for="booking-purpose">Цель обращения</label>
+          <textarea class="booking-form__input booking-form__textarea" id="booking-purpose" name="purpose" rows="4" required placeholder="Например: разбор гардероба, подбор цветов, подготовка к событию"></textarea>
+        </div>
+        <div class="booking-form__field booking-form__field--checkbox">
+          <label class="booking-form__checkbox">
+            <input type="checkbox" id="booking-consent" name="consent" value="Да" required>
+            <span>Даю согласие на обработку моих персональных данных</span>
+          </label>
+        </div>
+        <p class="booking-form__error" id="booking-form-error" hidden></p>
+        <p class="booking-form__success" id="booking-form-success" hidden>Спасибо! Заявка отправлена. Скоро свяжусь с вами.</p>
+        <button type="submit" class="btn btn--full booking-form__submit" id="booking-submit">Отправить заявку</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="target-cursor.js" defer></script>
+  <script src="nav.js" defer></script>
+  <script src="form-config.js" defer></script>
+  <script src="booking-modal.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>

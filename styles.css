@@ -158,8 +158,8 @@ img {
 #process h2::before,
 #about h2::before,
 #formats h2::before,
-#color-examples h2::before,
-#contact h2::before {
+#contact h2::before,
+#tips h1::before {
   display: block;
   font-family: var(--font-body);
   font-size: var(--text-label);
@@ -175,9 +175,9 @@ img {
 #process h2::before { content: "03 — процесс"; }
 #about h2::before { content: "04 — о себе"; }
 #formats h2::before { content: "05 — услуги"; }
-#color-examples h2::before { content: "06 — цветовые сочетания"; }
 #contact h2::before,
-.final h2::before { content: "07 — запись"; }
+.final h2::before { content: "06 — запись"; }
+#tips h1::before { content: "полезные советы"; }
 
 .section-lead {
   font-family: var(--font-body);
@@ -846,6 +846,39 @@ details p,
 .section--color-examples {
   background-color: var(--beige);
   background-image: var(--gradient-color-examples);
+}
+
+.section--page-top {
+  padding-top: calc(var(--header-h) + clamp(2rem, 5vw, 3rem));
+}
+
+.page-back {
+  margin: 0 0 1.25rem;
+}
+
+.page-back a {
+  font-size: var(--text-small);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--violet);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.page-back a:hover,
+.page-back a:focus-visible {
+  color: var(--violet-deep);
+  border-bottom-color: var(--violet);
+}
+
+.site-header__nav a[aria-current="page"] {
+  color: var(--violet-deep);
+}
+
+.site-header__nav a[aria-current="page"]::after {
+  transform: scaleX(1);
 }
 
 .for-you-gallery {
