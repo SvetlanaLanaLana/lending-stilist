@@ -14,6 +14,10 @@
   const successEl = document.getElementById("booking-form-success");
   const submitBtn = document.getElementById("booking-submit");
   const consent = document.getElementById("booking-consent");
+  const emailInput = form.querySelector("#booking-email");
+  const phoneInput = form.querySelector("#booking-phone");
+  const contactTypeInputs = form.querySelectorAll('input[name="contact_type"]');
+  const contactFields = form.querySelectorAll("[data-contact-field]");
   const serviceInputs = form.querySelectorAll('input[name="service"]');
   const openers = document.querySelectorAll("[data-booking-open]");
   const closers = modal.querySelectorAll("[data-booking-close]");
@@ -48,6 +52,36 @@
     });
   };
 
+  const getContactType = () => {
+    const checked = form.querySelector('input[name="contact_type"]:checked');
+    return checked?.value === "phone" ? "phone" : "email";
+  };
+
+  const syncContactFields = () => {
+    const type = getContactType();
+
+    contactFields.forEach((field) => {
+      const isActive = field.getAttribute("data-contact-field") === type;
+      field.hidden = !isActive;
+    });
+
+    if (emailInput) {
+      emailInput.required = type === "email";
+      if (type !== "email") emailInput.value = "";
+    }
+
+    if (phoneInput) {
+      phoneInput.required = type === "phone";
+      if (type !== "phone") phoneInput.value = "";
+    }
+  };
+
+  contactTypeInputs.forEach((input) => {
+    input.addEventListener("change", syncContactFields);
+  });
+
+  syncContactFields();
+
   const setMessage = (el, text) => {
     if (!el) return;
     if (text) {
@@ -68,27 +102,40 @@
 
   const buildPayload = (formData) => {
     const service = getSelectedService();
+    const contactType = getContactType();
+    const email = String(formData.get("email") || "").trim();
+    const phone = String(formData.get("phone") || "").trim();
+    const contactValue = contactType === "phone" ? phone : email;
+    const contactLabel = contactType === "phone" ? "Телефон" : "Почта";
     const purpose = String(formData.get("purpose") || "").trim();
-    const purposeText = purpose
-      ? "Услуга: " + service + "\n\nДополнительно: " + purpose
-      : "Услуга: " + service;
+    const purposeText = [
+      "Услуга: " + service,
+      "Связь: " + contactLabel + " — " + contactValue,
+      purpose ? "Дополнительно: " + purpose : "",
+    ]
+      .filter(Boolean)
+      .join("\n\n");
 
     return {
       name: String(formData.get("name") || "").trim(),
-      email: String(formData.get("email") || "").trim(),
-      phone: String(formData.get("phone") || "").trim(),
+      email: contactType === "email" ? email : "—",
+      phone: contactType === "phone" ? phone : "—",
+      contactType,
+      contactLabel,
+      contactValue,
       service,
       purpose: purposeText,
       consent: String(formData.get("consent") || ""),
       _subject: "Новая заявка с сайта — консультация",
       _template: "table",
       _captcha: "false",
-      _replyto: String(formData.get("email") || "").trim(),
+      _replyto: contactType === "email" ? email : "",
     };
   };
 
   const showSuccess = () => {
     form.reset();
+    syncContactFields();
     setMessage(successEl, "Спасибо! Заявка отправлена. Скоро свяжусь с вами.");
     submitBtn.textContent = "Отправлено";
   };
@@ -132,8 +179,7 @@
       "Новая заявка с сайта",
       "",
       "Имя: " + payload.name,
-      "Почта: " + payload.email,
-      "Телефон: " + payload.phone,
+      payload.contactLabel + ": " + payload.contactValue,
       "",
       payload.purpose,
     ].join("\n");
@@ -262,6 +308,8 @@
       if (toggle) toggle.setAttribute("aria-expanded", "false");
     }
 
+    syncContactFields();
+
     const nameInput = form.querySelector("#booking-name");
     if (nameInput) nameInput.focus();
   };
@@ -308,6 +356,23 @@
       setMessage(errorEl, "Выберите услугу или полный пакет.");
       const firstService = form.querySelector('input[name="service"]');
       firstService?.focus();
+      return;
+    }
+
+    syncContactFields();
+
+    const contactType = getContactType();
+    const contactValue =
+      contactType === "phone"
+        ? phoneInput?.value.trim()
+        : emailInput?.value.trim();
+
+    if (!contactValue) {
+      setMessage(
+        errorEl,
+        contactType === "phone" ? "Укажите номер телефона." : "Укажите почту."
+      );
+      (contactType === "phone" ? phoneInput : emailInput)?.focus();
       return;
     }
 

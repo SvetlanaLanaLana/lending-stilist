@@ -1675,6 +1675,31 @@ html.js .reveal.is-visible {
   line-height: 1.55;
 }
 
+.booking-form__field--contact {
+  margin-bottom: 1rem;
+  padding: 0;
+  border: none;
+  min-width: 0;
+}
+
+.booking-form__field--contact legend.booking-form__label {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  padding: 0;
+}
+
+.booking-form__contact-type {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.booking-form__contact-field .booking-form__label {
+  margin-bottom: 0.35rem;
+}
+
 .booking-form__field--services {
   margin-bottom: 1rem;
   padding: 0;

@@ -97,14 +97,27 @@
           <label class="booking-form__label" for="booking-name">Имя</label>
           <input class="booking-form__input" type="text" id="booking-name" name="name" autocomplete="name" required placeholder="Как к вам обращаться">
         </div>
-        <div class="booking-form__field">
-          <label class="booking-form__label" for="booking-email">Почта</label>
-          <input class="booking-form__input" type="email" id="booking-email" name="email" autocomplete="email" required placeholder="example@mail.ru">
-        </div>
-        <div class="booking-form__field">
-          <label class="booking-form__label" for="booking-phone">Номер телефона</label>
-          <input class="booking-form__input" type="tel" id="booking-phone" name="phone" autocomplete="tel" required placeholder="+7 (___) ___-__-__">
-        </div>
+        <fieldset class="booking-form__field booking-form__field--contact">
+          <legend class="booking-form__label">Как с вами связаться?</legend>
+          <div class="booking-form__contact-type">
+            <label class="booking-form__checkbox">
+              <input type="radio" name="contact_type" value="email" checked required>
+              <span>Почта</span>
+            </label>
+            <label class="booking-form__checkbox">
+              <input type="radio" name="contact_type" value="phone">
+              <span>Телефон</span>
+            </label>
+          </div>
+          <div class="booking-form__contact-field" data-contact-field="email">
+            <label class="booking-form__label" for="booking-email">Почта</label>
+            <input class="booking-form__input" type="email" id="booking-email" name="email" autocomplete="email" placeholder="example@mail.ru">
+          </div>
+          <div class="booking-form__contact-field" data-contact-field="phone" hidden>
+            <label class="booking-form__label" for="booking-phone">Номер телефона</label>
+            <input class="booking-form__input" type="tel" id="booking-phone" name="phone" autocomplete="tel" placeholder="+7 (___) ___-__-__">
+          </div>
+        </fieldset>
         <fieldset class="booking-form__field booking-form__field--services">
           <legend class="booking-form__label">Выберите услугу</legend>
           <div class="booking-form__services" id="booking-services">
