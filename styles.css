@@ -236,7 +236,7 @@ img {
 }
 
 .about__lead {
-  font-size: var(--text-lead);
+  font-size: var(--text-body);
   color: var(--ink);
   border-bottom: 1px solid var(--line);
 }
@@ -247,7 +247,7 @@ img {
 }
 
 .about__creds {
-  font-size: var(--text-small);
+  font-size: var(--text-body);
   color: var(--ink-muted);
   border-bottom: 1px solid var(--line);
 }
