@@ -1,24 +1,17 @@
 /**
- * Настройка формы заявок (без Web3Forms).
+ * Настройка формы заявок.
  *
- * 1) FormSubmit — письма на почту (основной канал)
- *    При первой заявке на svpodols@mail.ru придёт письмо «Activate Form».
- *    Откройте его и нажмите ссылку — после этого заявки будут приходить на почту.
+ * FormSubmit — основной канал (письма на svpodols@mail.ru).
  *
- * 2) Telegram — мгновенные уведомления (рекомендуется как запасной канал)
- *    а) В Telegram найдите @BotFather → /newbot → скопируйте токен бота
- *    б) Напишите боту любое сообщение
- *    в) Откройте в браузере:
- *       https://api.telegram.org/bot<ВАШ_ТОКЕН>/getUpdates
- *       и найдите "chat":{"id": ЧИСЛО}
- *    г) Вставьте токен и chat id ниже
+ * Telegram — дополнительный канал (@managerfilm_bot).
+ * Если уведомления в Telegram не приходят — напишите боту /start,
+ * затем укажите свой chat id (не id бота) в telegramChatId.
  */
 window.FORM_CONFIG = {
   recipientEmail: "svpodols@mail.ru",
   fromName: "Сайт — Светлана Подольская",
 
-  // Оставьте пустым, если Telegram не нужен
-  telegramBotToken: "",
-  telegramChatId: "",
+  telegramBotToken: "8551650843:AAHwEq0fdYNLC1NRk-CqAO2HrLL9oeAGsBc",
+  telegramChatId: "8551650843",
 };
 
