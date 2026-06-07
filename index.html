@@ -58,11 +58,9 @@
 
         <a href="#results">Результат</a>
 
-        <a href="#process">Процесс</a>
-
         <a href="#about">О себе</a>
 
-        <a href="#formats">Услуги</a>
+        <a href="#formats">Форматы работы</a>
 
         <a href="tips.html">Полезные советы</a>
 
@@ -208,54 +206,6 @@
 
 
 
-    <section class="section" id="process">
-
-      <div class="container">
-
-        <h2 class="reveal section-title">Как проходит работа</h2>
-
-        <ol class="steps reveal-stagger">
-
-          <li class="reveal">
-
-            <h3>Знакомство</h3>
-
-            <p>Обсуждаем ваш запрос, образ жизни и пожелания.</p>
-
-          </li>
-
-          <li class="reveal">
-
-            <h3>Анализ внешности</h3>
-
-            <p>Определяем особенности фигуры, цветотип и подходящие стилистические решения.</p>
-
-          </li>
-
-          <li class="reveal">
-
-            <h3>Работа с гардеробом</h3>
-
-            <p>Разбираем вещи и смотрим, как сделать гардероб более удобным и функциональным.</p>
-
-          </li>
-
-          <li class="reveal">
-
-            <h3>Рекомендации</h3>
-
-            <p>Вы получаете понятные рекомендации без перегруза и сложных правил.</p>
-
-          </li>
-
-        </ol>
-
-      </div>
-
-    </section>
-
-
-
     <section class="section section--alt" id="about">
 
       <div class="container">
@@ -308,33 +258,49 @@
 
         <h2 class="reveal section-title">Форматы работы</h2>
 
-        <div class="pricing">
+        <p class="section-lead reveal">Выберите направление — откроется описание консультации и стоимость.</p>
 
-          <div class="reveal">
+        <div class="service-grid reveal-stagger" role="list">
 
-            <ul class="list reveal-stagger">
+          <button type="button" class="service-card reveal" data-service="colortype" role="listitem">
 
-              <li class="reveal">анализ фигуры и лица</li>
+            <span class="service-card__num">01</span>
 
-              <li class="reveal">определение цветотипа</li>
+            <span class="service-card__title">Определение цветотипа по природным данным</span>
 
-              <li class="reveal">разбор гардероба</li>
+          </button>
 
-              <li class="reveal">составление базового гардероба</li>
+          <button type="button" class="service-card reveal" data-service="face" role="listitem">
 
-            </ul>
+            <span class="service-card__num">02</span>
 
-          </div>
+            <span class="service-card__title">Определение типа лица</span>
 
-          <div class="price-box reveal">
+          </button>
 
-            <p><span>Стоимость</span> от 3 тыс. руб., зависит от выбора услуги</p>
+          <button type="button" class="service-card reveal" data-service="figure" role="listitem">
 
-            <p><span>Формат</span> онлайн / офлайн</p>
+            <span class="service-card__num">03</span>
 
-            <a href="#" class="btn btn--full" data-booking-open>Уточнить стоимость</a>
+            <span class="service-card__title">Анализ фигуры</span>
 
-          </div>
+          </button>
+
+          <button type="button" class="service-card reveal" data-service="psychotype" role="listitem">
+
+            <span class="service-card__num">04</span>
+
+            <span class="service-card__title">Определение психотипа</span>
+
+          </button>
+
+          <button type="button" class="service-card reveal" data-service="wardrobe" role="listitem">
+
+            <span class="service-card__num">05</span>
+
+            <span class="service-card__title">Рекомендации по составлению базового гардероба</span>
+
+          </button>
 
         </div>
 
@@ -363,6 +329,36 @@
     </div>
 
   </footer>
+
+  <div class="service-modal" id="service-modal" hidden aria-hidden="true">
+
+    <div class="service-modal__backdrop" data-service-close tabindex="-1" aria-hidden="true"></div>
+
+    <div class="service-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="service-modal-title">
+
+      <button type="button" class="service-modal__close" data-service-close aria-label="Закрыть">
+
+        <span aria-hidden="true">&times;</span>
+
+      </button>
+
+      <h2 class="service-modal__title" id="service-modal-title"></h2>
+
+      <p class="service-modal__desc" id="service-modal-desc"></p>
+
+      <div class="service-modal__meta">
+
+        <p class="service-modal__price-row"><span>Стоимость</span> <strong id="service-modal-price"></strong></p>
+
+        <p class="service-modal__format-row"><span>Формат</span> онлайн / офлайн</p>
+
+      </div>
+
+      <button type="button" class="btn btn--full" data-service-booking>Записаться на консультацию</button>
+
+    </div>
+
+  </div>
 
   <div class="booking-modal" id="booking-modal" hidden aria-hidden="true">
 
@@ -463,6 +459,8 @@
   <script src="nav.js" defer></script>
 
   <script src="form-config.js" defer></script>
+
+  <script src="service-modal.js" defer></script>
 
   <script src="booking-modal.js" defer></script>
 

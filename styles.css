@@ -107,7 +107,8 @@ body {
 }
 
 body.nav-open,
-body.booking-open {
+body.booking-open,
+body.service-open {
   overflow: hidden;
 }
 
@@ -155,7 +156,6 @@ img {
 
 #requests h2::before,
 #results h2::before,
-#process h2::before,
 #about h2::before,
 #formats h2::before,
 #contact h2::before,
@@ -172,11 +172,10 @@ img {
 
 #requests h2::before { content: "01 — для вас"; }
 #results h2::before { content: "02 — результат"; }
-#process h2::before { content: "03 — процесс"; }
-#about h2::before { content: "04 — о себе"; }
-#formats h2::before { content: "05 — услуги"; }
+#about h2::before { content: "03 — о себе"; }
+#formats h2::before { content: "04 — форматы работы"; }
 #contact h2::before,
-.final h2::before { content: "06 — запись"; }
+.final h2::before { content: "05 — запись"; }
 #tips h1::before { content: "полезные советы"; }
 
 .section-lead {
@@ -1407,6 +1406,159 @@ html.js .reveal.is-visible {
     width: 100%;
     text-align: center;
   }
+}
+
+/* ——— Форматы работы: карточки услуг ——— */
+.service-grid {
+  display: grid;
+  gap: 0;
+  margin-top: 1.5rem;
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--violet);
+  background: var(--paper);
+}
+
+.service-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
+  margin: 0;
+  padding: 1.2rem 1.35rem;
+  text-align: left;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.service-card:last-child {
+  border-bottom: none;
+}
+
+.service-card:hover,
+.service-card:focus-visible {
+  background: rgba(133, 80, 160, 0.06);
+  outline: none;
+}
+
+.service-card__num {
+  flex-shrink: 0;
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--violet);
+  padding-top: 0.15rem;
+}
+
+.service-card__title {
+  font-size: var(--text-body);
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+/* ——— Карточка услуги (модальное окно) ——— */
+.service-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1050;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+}
+
+.service-modal[hidden] {
+  display: none;
+}
+
+.service-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(46, 36, 56, 0.45);
+  backdrop-filter: blur(4px);
+}
+
+.service-modal__dialog {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 32rem);
+  max-height: min(92vh, 36rem);
+  overflow-y: auto;
+  padding: clamp(1.5rem, 4vw, 2rem);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--violet);
+  box-shadow: var(--shadow);
+}
+
+.service-modal__close {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sharp);
+  background: var(--cream);
+  color: var(--ink-muted);
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.service-modal__close:hover,
+.service-modal__close:focus-visible {
+  color: var(--violet-deep);
+  border-color: var(--line-strong);
+  outline: none;
+}
+
+.service-modal__title {
+  margin: 0 2rem 1rem 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 3vw, 1.85rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.service-modal__desc {
+  margin: 0 0 1.35rem;
+  font-size: var(--text-body);
+  line-height: 1.7;
+  color: var(--ink-muted);
+}
+
+.service-modal__meta {
+  margin-bottom: 1.35rem;
+  padding: 1rem 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.service-modal__price-row,
+.service-modal__format-row {
+  margin: 0 0 0.5rem;
+  font-size: var(--text-body);
+  color: var(--ink);
+}
+
+.service-modal__price-row span,
+.service-modal__format-row span {
+  display: block;
+  font-size: var(--text-small);
+  color: var(--ink-soft);
+  margin-bottom: 0.15rem;
+}
+
+.service-modal__price-row strong {
+  font-weight: 600;
+  color: var(--violet-deep);
 }
 
 /* ——— Попап записи на консультацию ——— */

@@ -178,11 +178,18 @@
     }
   };
 
-  const openModal = () => {
+  const openModal = (options = {}) => {
     lastFocus = document.activeElement;
     modal.hidden = false;
     modal.setAttribute("aria-hidden", "false");
     document.body.classList.add("booking-open");
+
+    const purposeField = form.querySelector("#booking-purpose");
+    if (purposeField) {
+      purposeField.value = options.service
+        ? "Запись на консультацию: " + options.service
+        : "";
+    }
 
     const header = document.querySelector("[data-site-header]");
     if (header?.classList.contains("site-header--open")) {
@@ -207,8 +214,13 @@
   openers.forEach((el) => {
     el.addEventListener("click", (e) => {
       e.preventDefault();
-      openModal();
+      const service = el.getAttribute("data-booking-service") || "";
+      openModal(service ? { service } : {});
     });
+  });
+
+  document.addEventListener("booking:open", (e) => {
+    openModal({ service: e.detail?.service || "" });
   });
 
   closers.forEach((el) => {
