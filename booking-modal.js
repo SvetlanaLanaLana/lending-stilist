@@ -14,11 +14,39 @@
   const successEl = document.getElementById("booking-form-success");
   const submitBtn = document.getElementById("booking-submit");
   const consent = document.getElementById("booking-consent");
+  const serviceInputs = form.querySelectorAll('input[name="service"]');
   const openers = document.querySelectorAll("[data-booking-open]");
   const closers = modal.querySelectorAll("[data-booking-close]");
 
+  const SERVICE_LABELS = {
+    colortype: "Определение цветотипа по природным данным — 3 тыс. руб.",
+    face: "Определение типа лица — 3 тыс. руб.",
+    figure: "Анализ фигуры — 3 тыс. руб.",
+    psychotype: "Определение психотипа — 3 тыс. руб.",
+    wardrobe: "Рекомендации по составлению базового гардероба — 3 тыс. руб.",
+    package: "Полный пакет услуг — 12 тыс. руб.",
+  };
+
   let lastFocus = null;
   let submitFrame = null;
+
+  const getSelectedService = () => {
+    const checked = form.querySelector('input[name="service"]:checked');
+    if (!checked) return "";
+    return SERVICE_LABELS[checked.value] || checked.value;
+  };
+
+  const setSelectedService = (serviceId) => {
+    serviceInputs.forEach((input) => {
+      input.checked = input.value === serviceId;
+    });
+  };
+
+  const clearSelectedService = () => {
+    serviceInputs.forEach((input) => {
+      input.checked = false;
+    });
+  };
 
   const setMessage = (el, text) => {
     if (!el) return;
@@ -38,17 +66,26 @@
     submitBtn.textContent = "Отправить заявку";
   };
 
-  const buildPayload = (formData) => ({
-    name: String(formData.get("name") || "").trim(),
-    email: String(formData.get("email") || "").trim(),
-    phone: String(formData.get("phone") || "").trim(),
-    purpose: String(formData.get("purpose") || "").trim(),
-    consent: String(formData.get("consent") || ""),
-    _subject: "Новая заявка с сайта — консультация",
-    _template: "table",
-    _captcha: "false",
-    _replyto: String(formData.get("email") || "").trim(),
-  });
+  const buildPayload = (formData) => {
+    const service = getSelectedService();
+    const purpose = String(formData.get("purpose") || "").trim();
+    const purposeText = purpose
+      ? "Услуга: " + service + "\n\nДополнительно: " + purpose
+      : "Услуга: " + service;
+
+    return {
+      name: String(formData.get("name") || "").trim(),
+      email: String(formData.get("email") || "").trim(),
+      phone: String(formData.get("phone") || "").trim(),
+      service,
+      purpose: purposeText,
+      consent: String(formData.get("consent") || ""),
+      _subject: "Новая заявка с сайта — консультация",
+      _template: "table",
+      _captcha: "false",
+      _replyto: String(formData.get("email") || "").trim(),
+    };
+  };
 
   const showSuccess = () => {
     form.reset();
@@ -70,6 +107,7 @@
         name: payload.name,
         email: payload.email,
         phone: payload.phone,
+        service: payload.service,
         purpose: payload.purpose,
         message: payload.purpose,
         consent: payload.consent,
@@ -185,10 +223,12 @@
     document.body.classList.add("booking-open");
 
     const purposeField = form.querySelector("#booking-purpose");
-    if (purposeField) {
-      purposeField.value = options.service
-        ? "Запись на консультацию: " + options.service
-        : "";
+    if (purposeField) purposeField.value = "";
+
+    if (options.serviceId && SERVICE_LABELS[options.serviceId]) {
+      setSelectedService(options.serviceId);
+    } else {
+      clearSelectedService();
     }
 
     const header = document.querySelector("[data-site-header]");
@@ -214,13 +254,13 @@
   openers.forEach((el) => {
     el.addEventListener("click", (e) => {
       e.preventDefault();
-      const service = el.getAttribute("data-booking-service") || "";
-      openModal(service ? { service } : {});
+      const serviceId = el.getAttribute("data-booking-service-id") || "";
+      openModal(serviceId ? { serviceId } : {});
     });
   });
 
   document.addEventListener("booking:open", (e) => {
-    openModal({ service: e.detail?.service || "" });
+    openModal({ serviceId: e.detail?.serviceId || "" });
   });
 
   closers.forEach((el) => {
@@ -240,6 +280,13 @@
     e.preventDefault();
     setMessage(errorEl, "");
     setMessage(successEl, "");
+
+    if (!getSelectedService()) {
+      setMessage(errorEl, "Выберите услугу или полный пакет.");
+      const firstService = form.querySelector('input[name="service"]');
+      firstService?.focus();
+      return;
+    }
 
     if (!consent?.checked) {
       setMessage(errorEl, "Нужно дать согласие на обработку персональных данных.");

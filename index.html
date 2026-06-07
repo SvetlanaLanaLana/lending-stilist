@@ -352,8 +352,6 @@
 
         <p class="service-modal__format-row"><span>Формат</span> онлайн / офлайн</p>
 
-        <p class="service-modal__package">При покупке полного пакета услуг стоимость 12 тыс. руб.</p>
-
       </div>
 
       <button type="button" class="btn btn--full" data-service-booking>Записаться на консультацию</button>
@@ -416,11 +414,69 @@
 
         </div>
 
+        <fieldset class="booking-form__field booking-form__field--services">
+
+          <legend class="booking-form__label">Выберите услугу</legend>
+
+          <div class="booking-form__services" id="booking-services">
+
+            <label class="booking-form__checkbox">
+
+              <input type="radio" name="service" value="colortype" required>
+
+              <span>Определение цветотипа по природным данным — 3 тыс. руб.</span>
+
+            </label>
+
+            <label class="booking-form__checkbox">
+
+              <input type="radio" name="service" value="face">
+
+              <span>Определение типа лица — 3 тыс. руб.</span>
+
+            </label>
+
+            <label class="booking-form__checkbox">
+
+              <input type="radio" name="service" value="figure">
+
+              <span>Анализ фигуры — 3 тыс. руб.</span>
+
+            </label>
+
+            <label class="booking-form__checkbox">
+
+              <input type="radio" name="service" value="psychotype">
+
+              <span>Определение психотипа — 3 тыс. руб.</span>
+
+            </label>
+
+            <label class="booking-form__checkbox">
+
+              <input type="radio" name="service" value="wardrobe">
+
+              <span>Рекомендации по составлению базового гардероба — 3 тыс. руб.</span>
+
+            </label>
+
+            <label class="booking-form__checkbox booking-form__checkbox--package">
+
+              <input type="radio" name="service" value="package">
+
+              <span>Полный пакет услуг — 12 тыс. руб.</span>
+
+            </label>
+
+          </div>
+
+        </fieldset>
+
         <div class="booking-form__field">
 
-          <label class="booking-form__label" for="booking-purpose">Цель обращения</label>
+          <label class="booking-form__label" for="booking-purpose">Дополнительно <span class="booking-form__optional">(необязательно)</span></label>
 
-          <textarea class="booking-form__input booking-form__textarea" id="booking-purpose" name="purpose" rows="4" required placeholder="Например: разбор гардероба, подбор цветов, подготовка к событию"></textarea>
+          <textarea class="booking-form__input booking-form__textarea" id="booking-purpose" name="purpose" rows="3" placeholder="Например: удобное время для связи, особые пожелания"></textarea>
 
         </div>
 

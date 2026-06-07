@@ -55,7 +55,7 @@
     if (titleEl) titleEl.textContent = service.title;
     if (descEl) descEl.textContent = service.description;
     if (priceEl) priceEl.textContent = service.price;
-    if (bookingBtn) bookingBtn.setAttribute("data-booking-service", service.title);
+    if (bookingBtn) bookingBtn.setAttribute("data-service-id", id);
 
     modal.hidden = false;
     modal.setAttribute("aria-hidden", "false");
@@ -88,10 +88,10 @@
 
   if (bookingBtn) {
     bookingBtn.addEventListener("click", () => {
-      const serviceTitle = bookingBtn.getAttribute("data-booking-service") || "";
+      const serviceId = bookingBtn.getAttribute("data-service-id") || "";
       closeModal();
       document.dispatchEvent(
-        new CustomEvent("booking:open", { detail: { service: serviceTitle } })
+        new CustomEvent("booking:open", { detail: { serviceId } })
       );
     });
   }

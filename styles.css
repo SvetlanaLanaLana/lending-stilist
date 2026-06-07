@@ -1561,15 +1561,6 @@ html.js .reveal.is-visible {
   color: var(--violet-deep);
 }
 
-.service-modal__package {
-  margin: 1rem 0 0;
-  padding-top: 1rem;
-  border-top: 1px solid var(--line);
-  font-size: var(--text-small);
-  line-height: 1.6;
-  color: var(--ink-muted);
-}
-
 /* ——— Попап записи на консультацию ——— */
 .booking-modal {
   position: fixed;
@@ -1595,7 +1586,7 @@ html.js .reveal.is-visible {
   position: relative;
   z-index: 1;
   width: min(100%, 28rem);
-  max-height: min(92vh, 40rem);
+  max-height: min(92vh, 44rem);
   overflow-y: auto;
   padding: clamp(1.5rem, 4vw, 2rem);
   background: var(--paper);
@@ -1682,6 +1673,43 @@ html.js .reveal.is-visible {
   resize: vertical;
   min-height: 5.5rem;
   line-height: 1.55;
+}
+
+.booking-form__field--services {
+  margin-bottom: 1rem;
+  padding: 0;
+  border: none;
+  min-width: 0;
+}
+
+.booking-form__field--services .booking-form__label,
+.booking-form__field--services legend.booking-form__label {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  padding: 0;
+}
+
+.booking-form__services {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.booking-form__checkbox--package {
+  margin-top: 0.35rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--line);
+}
+
+.booking-form__checkbox--package span {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.booking-form__optional {
+  font-weight: 400;
+  color: var(--ink-soft);
 }
 
 .booking-form__field--checkbox {
