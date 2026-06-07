@@ -2,7 +2,7 @@
   "use strict";
 
   var AUTO_TARGETS =
-    ".btn, .site-header__nav a, .site-header__brand, .site-header__toggle, .card, .for-you-card, .color-card, .quiz-teaser__btn, .contact-block__link, .page-back a, .booking-modal__close";
+    ".btn, .site-header__nav a, .site-header__brand, .site-header__toggle, .card, .for-you-card, .color-card, .quiz-teaser__btn, .page-back a, .booking-modal__close";
 
   function isMobile() {
     if (typeof window === "undefined") return true;
